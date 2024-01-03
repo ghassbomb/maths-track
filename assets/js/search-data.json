@@ -133,18 +133,18 @@
     "relUrl": "/proof/prove/ch2/index/"
   },"19": {
     "doc": "How to Prove It",
-    "title": "How to Prove It, by Daniel J. Velleman",
-    "content": " ",
-    "url": "/maths-track/proof/prove/index/#how-to-prove-it-by-daniel-j-velleman",
-    
-    "relUrl": "/proof/prove/index/#how-to-prove-it-by-daniel-j-velleman"
-  },"20": {
-    "doc": "How to Prove It",
     "title": "How to Prove It",
     "content": " ",
     "url": "/maths-track/proof/prove/index/",
     
     "relUrl": "/proof/prove/index/"
+  },"20": {
+    "doc": "How to Prove It",
+    "title": "by Daniel J. Velleman",
+    "content": " ",
+    "url": "/maths-track/proof/prove/index/#by-daniel-j-velleman",
+    
+    "relUrl": "/proof/prove/index/#by-daniel-j-velleman"
   },"21": {
     "doc": "Introduction",
     "title": "1 Introduction",
