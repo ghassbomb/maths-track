@@ -1,0 +1,16 @@
+This is tralics 2.15.1, a LaTeX to XML translator, running on Ghassans-MacBook-Air
+Copyright INRIA/MIAOU/APICS/MARELLE 2002-2012, Jos\'e Grimm
+Licensed under the CeCILL Free Software Licensing Agreement
+Starting translation of file /var/folders/4y/z7x1f4_s44j2sdb7sp_r23m40000gn/T/polytex20240106-49796-1oxpie.tex.
+Dummy default configuration file used.
+Translating section command div0: Introduction.
+Bib stats: seen 0 entries.
+Math stats: formulas 0, kernels 0, trivial 0, \mbox 0, large 0, small 0.
+Buffer realloc 17, string 1540, size 18467, merge 0
+Macros created 198, deleted 10; hash size 2390; foonotes 0.
+Save stack +96 -90.
+Attribute list search 1645(1505) found 1123 in 1166 elements (1120 at boot).
+Number of ref 0, of used labels 0, of defined labels 0, of ext. ref. 0.
+Output written on /var/folders/4y/z7x1f4_s44j2sdb7sp_r23m40000gn/T/polytex20240106-49796-1oxpie.xml (2382 bytes).
+No error found.
+(For more information, see transcript file /var/folders/4y/z7x1f4_s44j2sdb7sp_r23m40000gn/T/polytex20240106-49796-1oxpie.log)
