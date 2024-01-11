@@ -1,0 +1,18 @@
+title = 'Maths Track'
+baseURL = 'https://ghassbomb.github.io/maths-track'
+languageCode = 'en-us'
+theme = 'track-theme'
+author = 'Ghassan Shahzad'
+description = 'Maths Track is a repository of sorts, where I dump notes, exercises, and everything else related to my attempt to teach myself mathematics.'
+enableRobotsTXT = true
+
+[params]
+github = 'https://github.com/ghassbomb/maths-track'
+
+[markup.goldmark.renderer] 
+unsafe = true
+
+[markup]
+  [markup.tableOfContents]
+    startLevel = 3
+    endLevel = 6
