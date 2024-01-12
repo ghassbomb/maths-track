@@ -166,3 +166,21 @@ proposition and some $x$ that satisfy the other.
           \exists x \forall y (\neg R(x,y) \vee \exists z \neg D(y, z)) \\\\
         \end{aligned}
         $$
+
+#### Chapter 2.3 — More Operations on Sets
+
+##### Notes
+
+Previously, we used set-builder notation like this: $\\{n^2 \mid n \in \mathbb{N} \\}$ — this set contains every perfect square. With quantifiers, we can rephrase this as: $\\{ x \mid \exists n \in \mathbb{N} (x = n^2) \\}$. These two sets are the exact same, and we can thus say that: $x \in \\{n^2 \mid n \in \mathbb{N}\\}$ and $\exists n \in \mathbb{N} (x = n^2)$.
+
+This comes in handy if we wish to define a set with indexed elements, like the set of the first 100 perfect squares. We can do the following:
+
+1. We create the _index set:_ $I = \\{i \in \mathbb{N} \mid 1 \le i \le 100\\}$.
+2. We use the index set to define our set of perfect squares: $P = \\{p \in I \mid p^2\\}$.
+
+Each element in $P$ is indexed $p^i$ using the index set. For instance, the 50th perfect square (2500) $= p^{50}$. The set $P$ is called an _indexed family._ You might notice the similarities of this set to the notation we talked about in the first paragraph. Using our previous equivalence of set builder notation, we can rephrase $P = \\{p \in I \mid p^2\\}$ as $P = \\{p \mid \exists i \in I(p = i^2)\\}$.
+
+We can define set _families_, which consist of multiple sets. For instance, $X = \\{P, I\\}$ is the family of the two sets: $I$ ($1 - 100$) and $P$ ($1^2 - 100^2$). Note that elements of the set $P$ or $I$ are not elements of $X$; there are only two elements in $X$: $P$ and $I$. For instance, $1 \notin X$, even though $1 \in I$; $I \in X$ is true, however.
+
+Let's say, however, that you _want_ the family set $X$ to contain the elements of $P$ and $I$; in that case, you would use $\bigcup X$. $\bigcup X$ is the union of the family $X$, and thus the set of elements of all the sets contained within the family ($I$, and $P$ in this case). We can express it as such: $X = \\{x \mid x \in I \vee x \in P\\}$. The intersection of a family, $\bigcap X$, would contain all the elements common to each of the sets in that family. In this case, it would be numbers like $1$ and $4$, that are both within the range $1-100$ and are perfect squares.
+

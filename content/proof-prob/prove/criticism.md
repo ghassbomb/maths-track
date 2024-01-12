@@ -1,6 +1,7 @@
 ---
 title: Criticism
 ---
+
 ## [How to Prove It, by Daniel J. Velleman](../)
 
 {{< toc >}}
@@ -14,3 +15,4 @@ title: Criticism
 2.  The author doesn't explain the principle of vacuous truth in [§1.5](../ch1/#chapter-15--the-conditional-and-biconditional-connectives),
     and thus leaves the reader confused as to why the last two lines of
     the truth table are true. His attempt at an explanation just leaves one _more_ confused.
+3.  The author gives examples demanding more advanced operations on sets in [§2.1](../ch2/#chapter-21--quantifiers) & [§2.2](../ch2/#chapter-22--equivalences-involving-quantifiers) before defining them in [§2.3](../ch2/#chapter-23--more-operations-on-sets).

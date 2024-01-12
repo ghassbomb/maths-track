@@ -311,7 +311,7 @@ $\{x \in \mathbb{R} \mid x^2 > 0\}$; since $x^2 > 0$ is a tautology,
 then every element of the universe of discourse $\mathbb{R}$ is an
 element of this set (since all the elements of the universe pass the
 test). The opposite, if the proposition is a contradiction, would be an
-empty set. We can denote an empty set with the symbol $\emptyset$.
+empty set. We can denote an empty set with the symbol $\emptyset$. Similar to an empty set is the idea of two _disjoint_ sets — two sets which have no common elements.
 
 ##### Exercises
 
