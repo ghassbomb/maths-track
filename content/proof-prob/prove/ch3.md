@@ -31,3 +31,37 @@ For statements of the form $P \rightarrow Q$, you may remember the idea of a con
    2. Because we are solving _for_ x in the quadratic equation, so giving it a value would go against the whole point.
    3. The hypothesis ($25 > 24$) is true, so we can conclude that $2x^2 - 5x + 3 = 0$ has two solutions. Indeed, the conclusion ($x = 3/2$ and $x = 1$) is true.
    4. The hypothesis ($16 > 24$) is false, so the instance is a vacuous truth and pointless.
+3. ...
+   1. Hypotheses: $n > 2$ and $n$ is composite. Conclusion: $2n+13$ is composite. 
+   2. When $n = 9$, both hypotheses are true, and we can conclude that $2n+13$ is composite. However, $2(9)+13=31$ and $31$ is a prime number. Therefore, this theorem is incorrect.
+4. **Theorem:** if $0 < a < b$, then $b^2 > a^2$.
+   1. Proof:
+      1. We know that $b > a$.
+      2. We can multiply positive number $a$ with both sides to get the inequality: $ab > a^2$.
+      3. We can multiply positive number $b$ with both sides to get the inequality: $b^2 > ab$.
+      4. If $ab > a^2$, and $b^2 > ab$, then $a^2 < b^2$.
+      5. **QED**
+5. **Theorem:** if $a < b < 0$, then $a^2 > b^2$.
+   1. Proof:
+      1. We know that $a < b$.
+      2. Multiplying both sides by negative number $a$ gives us: $a^2 > ab$.
+      3. Multiplying both sides by negative number $b$ gives us: $ab > b^2$.
+      4. If $ab > b^2$ and $a^2 > ab$, then $a^2 > b^2$.
+      5. **QED**
+6. **Theorem:** if $0 < a < b$, then $\frac{1}{b} < \frac{1}{a}$.
+   1. Proof:
+      1. We know that $\frac{1}{b} < \frac{1}{a}$.
+      2. Multiplying both sides by $\frac{1}{ab}$ gives us: $\frac{a}{ab} < \frac{b}{ab}$.
+      3. We can simplify these fractions to get: $\frac{1}{b} < \frac{1}{a}$.
+      4. **QED**
+7. **Theorem:** if $a^3 > a$, then $a^5 > a$.
+   1. Proof:
+      1. We know that $a^3 > a$.
+      2. We can multiply both sides with positive number $a^2$ to get: $a^5 > a^3$.
+      3. If $a^3 > a$ and $a^5 > a^3$, then $a^5 > a$.
+      4. **QED**
+
+#### Chapter 3.2 — Proofs Involving Negations and Conditionals
+##### Notes
+
+Try and convert a negative statement $\neg P$ into a positive statement before working on it. If you can not achieve this, then attempt to prove it by *contradiction* — assume $P$ is true, and then try and prove some theorem that is false with it.

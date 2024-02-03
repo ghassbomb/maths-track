@@ -8,6 +8,7 @@ enableRobotsTXT = true
 
 [params]
 github = 'https://github.com/ghassbomb/maths-track'
+mathjax = true
 
 [markup.goldmark.renderer] 
 unsafe = true
