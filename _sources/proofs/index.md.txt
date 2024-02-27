@@ -1,0 +1,7 @@
+# Proofwriting and Problem-Solving
+
+```{toctree}
+:maxdepth: 1
+How to Solve It, by George Polya <http://localhost:8000/_static/how-to-solve-it.pdf>
+how-to-prove-it/index
+```

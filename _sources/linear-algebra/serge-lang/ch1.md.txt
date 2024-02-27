@@ -1,0 +1,70 @@
+# Chapter 1 --- Vectors
+
+## Vectors
+
+
+**Definition 1.** A *co-ordinate* represents a *point* on a line, which we can also call 1-space. A *pair* of co-ordinates represent a point on a *plane*, or 2-space. A trio of co-ordinates represent a point on 3-space, and so on, such that a point with $n$ co-ordinates (what we call an $n$-tuple) is a point on $n$-space. An $n$-**tuple** can be represented as $(x_1, x_2, x_3, ..., x_n)$, and we denote an $n$-**space** as $\mathbb{R}^n$.
+
+**Example 1**. A point on 1-space, 2-space, and 3-space respectively.
+
+**Definition 2**. We can say that higher dimensional spaces are **products** of lower dimensional spaces — the result of putting them side-by-side.
+
+**Example 2**. $\mathbb{R}^3 = \mathbb{R}^2 \cdot \mathbb{R}^1$
+
+**Definition 3**. To add two points, we sum each corresponding co-ordinate ($a_1 + b_1, a_2 + b_2$, etc), and expresss the results as a point in itself. For instance, if $A$ and $B$ are two points in $n$-space, their sum would be:
+
+$$ A + B = (a_1 + b_1, a_2 + b_2, ..., a_n + b_n) $$
+
+In addition operations involving points, the following properties are
+   observed:
+
+   #. :math:`(A + B) + C = A + (B + C)`
+
+   #. :math:`A + B = B + A`
+
+   #. If :math:`O` is the origin point, :math:`A + O = A`
+
+   #. Let :math:`A = (a_1, ..., a_n)` and
+      :math:`-A = (-a_1, ..., -a_n)`. Then :math:`A + (-A) = O`
+
+### Exercises
+
+Find $A + B$, $A - B$, $3A$, $-2B$ in each of the following cases. Draw the points of Exercises 1 and 2 on a sheet of graph paper.
+
+1. $A = (2, -1)$, $B = (-1, 1)$
+    1. $A + B = (1, 0)$
+    2. $A - B = (3, -2)$
+    3. $3A = (6, -3)$
+    4. $-2B = (2, -2)$
+2. $A = (-1, 3)$, $B = (0, 4)$
+    1. $A + B = (-1, 7)$
+    2. $A - B = (-1, -1)$
+    3. $3A = (-3, 9)$
+    4. $-2B = (0, -8)$
+3. $A = (2, -1, 5)$, $B = (-1, 1, 1)$
+    1. $A + B = (1, 0, 6)$
+    2. $A - B = (3, -2, 4)$
+    3. $3A = (6, -3, 15)$
+    4. $-2B = (2, -2, -2)$
+4. $A = (-1, -2, 3)$, $B = (-1, 3, -4)$
+    1. $A + B = (-2, 1, -1)$
+    2. $A - B = (0, -5, 7)$
+    3. $3A = (-3, -6, 9)$
+    4. $-2B = (2, -6, 8)$
+5. $A = (\pi, 3, -1)$, $B = (2\pi, -3, 7)$
+    1. $A + B = (3\pi, 0, 6)$
+    2. $A - B = (-\pi, 6, -8)$
+    3. $3A = (3\pi, 9, -3)$
+    4. $-2B = (-4\pi, 6, -14)$
+
+
+### Exercises
+
+1. $(3, 4) = (6, -3)$ — **Not Equivalent**
+2. $(-4, 1) = (-4, 1)$ — **Equivalent**
+3. $(-3, 4, -9) = (-3, 4, 9)$ — **Equivalent**
+4. $(-3, 0, 9) = (-3, 0, 9)$ — **Equivalent**
+5. $(3, 4) = k(8, -4)$ — **Not Parallel**
+6. $(-4, 1) = -1(4, -1)$ — **Parallel**
+7. $(-3, 4, -9) = \frac{1}{2}(-6, 8, -18)$ — **Parallel**
+8. $(-3, 0, 9) = (-9, 0, -27)$ — **Not Parallel**

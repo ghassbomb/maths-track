@@ -1,0 +1,422 @@
+<!doctype html>
+<html class="no-js" lang="en" data-content_root="../../">
+  <head><meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1"/>
+    <meta name="color-scheme" content="light dark"><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+<link rel="index" title="Index" href="../../genindex.html" /><link rel="search" title="Search" href="../../search.html" /><link rel="next" title="Chapter 1 — Sentential Logic" href="ch1.html" /><link rel="prev" title="How to Prove It, by Daniel J. Velleman" href="index.html" />
+
+    <!-- Generated with Sphinx 7.2.6 and Furo 2024.01.29 -->
+        <title>Chapter 0 — Introduction - Maths Track</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/furo.css?v=135e06be" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/furo-extensions.css?v=36a5483c" />
+    
+    
+
+
+<style>
+  body {
+    --color-code-background: #f8f8f8;
+  --color-code-foreground: black;
+  
+  }
+  @media not print {
+    body[data-theme="dark"] {
+      --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+    }
+    @media (prefers-color-scheme: dark) {
+      body:not([data-theme="light"]) {
+        --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+      }
+    }
+  }
+</style></head>
+  <body>
+    
+    <script>
+      document.body.dataset.theme = localStorage.getItem("theme") || "auto";
+    </script>
+    
+
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+  <symbol id="svg-toc" viewBox="0 0 24 24">
+    <title>Contents</title>
+    <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 1024 1024">
+      <path d="M408 442h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8zm-8 204c0 4.4 3.6 8 8 8h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56zm504-486H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zm0 632H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zM115.4 518.9L271.7 642c5.8 4.6 14.4.5 14.4-6.9V388.9c0-7.4-8.5-11.5-14.4-6.9L115.4 505.1a8.74 8.74 0 0 0 0 13.8z"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-menu" viewBox="0 0 24 24">
+    <title>Menu</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-menu">
+      <line x1="3" y1="12" x2="21" y2="12"></line>
+      <line x1="3" y1="6" x2="21" y2="6"></line>
+      <line x1="3" y1="18" x2="21" y2="18"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-arrow-right" viewBox="0 0 24 24">
+    <title>Expand</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-chevron-right">
+      <polyline points="9 18 15 12 9 6"></polyline>
+    </svg>
+  </symbol>
+  <symbol id="svg-sun" viewBox="0 0 24 24">
+    <title>Light mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="feather-sun">
+      <circle cx="12" cy="12" r="5"></circle>
+      <line x1="12" y1="1" x2="12" y2="3"></line>
+      <line x1="12" y1="21" x2="12" y2="23"></line>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+      <line x1="1" y1="12" x2="3" y2="12"></line>
+      <line x1="21" y1="12" x2="23" y2="12"></line>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-moon" viewBox="0 0 24 24">
+    <title>Dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-moon">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z" />
+    </svg>
+  </symbol>
+  <symbol id="svg-sun-half" viewBox="0 0 24 24">
+    <title>Auto light/dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-shadow">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+      <circle cx="12" cy="12" r="9" />
+      <path d="M13 12h5" />
+      <path d="M13 15h4" />
+      <path d="M13 18h1" />
+      <path d="M13 9h4" />
+      <path d="M13 6h1" />
+    </svg>
+  </symbol>
+</svg>
+
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation">
+<input type="checkbox" class="sidebar-toggle" name="__toc" id="__toc">
+<label class="overlay sidebar-overlay" for="__navigation">
+  <div class="visually-hidden">Hide navigation sidebar</div>
+</label>
+<label class="overlay toc-overlay" for="__toc">
+  <div class="visually-hidden">Hide table of contents sidebar</div>
+</label>
+
+
+
+<div class="page">
+  <header class="mobile-header">
+    <div class="header-left">
+      <label class="nav-overlay-icon" for="__navigation">
+        <div class="visually-hidden">Toggle site navigation sidebar</div>
+        <i class="icon"><svg><use href="#svg-menu"></use></svg></i>
+      </label>
+    </div>
+    <div class="header-center">
+      <a href="../../index.html"><div class="brand">Maths Track</div></a>
+    </div>
+    <div class="header-right">
+      <div class="theme-toggle-container theme-toggle-header">
+        <button class="theme-toggle">
+          <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
+          <svg class="theme-icon-when-auto"><use href="#svg-sun-half"></use></svg>
+          <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+          <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+        </button>
+      </div>
+      <label class="toc-overlay-icon toc-header-icon" for="__toc">
+        <div class="visually-hidden">Toggle table of contents sidebar</div>
+        <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+      </label>
+    </div>
+  </header>
+  <aside class="sidebar-drawer">
+    <div class="sidebar-container">
+      
+      <div class="sidebar-sticky"><a class="sidebar-brand" href="../../index.html">
+  
+  
+  <span class="sidebar-brand-text">Maths Track</span>
+  
+</a><form class="sidebar-search-container" method="get" action="../../search.html" role="search">
+  <input class="sidebar-search" placeholder="Search" name="q" aria-label="Search">
+  <input type="hidden" name="check_keywords" value="yes">
+  <input type="hidden" name="area" value="default">
+</form>
+<div id="searchbox"></div><div class="sidebar-scroll"><div class="sidebar-tree">
+  <ul class="current">
+<li class="toctree-l1 current has-children"><a class="reference internal" href="../index.html">Proofwriting and Problem-Solving</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><div class="visually-hidden">Toggle navigation of Proofwriting and Problem-Solving</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
+<li class="toctree-l2"><a class="reference external" href="http://localhost:8000/_static/how-to-solve-it.pdf">How to Solve It, by George Polya</a></li>
+<li class="toctree-l2 current has-children"><a class="reference internal" href="index.html">How to Prove It, by Daniel J. Velleman</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><div class="visually-hidden">Toggle navigation of How to Prove It, by Daniel J. Velleman</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
+<li class="toctree-l3 current current-page"><a class="current reference internal" href="#">Chapter 0 — Introduction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ch1.html">Chapter 1 — Sentential Logic</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ch2.html">Chapter 2 — Quantificational Logic</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ch3.html">Chapter 3 — Proofs</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../linear-algebra/index.html">Linear Algebra</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" role="switch" type="checkbox"/><label for="toctree-checkbox-3"><div class="visually-hidden">Toggle navigation of Linear Algebra</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference external" href="http://localhost:8000/_static/serge-lang.pdf">Linear Algebra, by Serge Lang</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference external" href="https://ghassbomb.github.io/">My Website</a></li>
+</ul>
+
+</div>
+</div>
+
+      </div>
+      
+    </div>
+  </aside>
+  <div class="main">
+    <div class="content">
+      <div class="article-container">
+        <a href="#" class="back-to-top muted-link">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12z"></path>
+          </svg>
+          <span>Back to top</span>
+        </a>
+        <div class="content-icon-container">
+          <div class="edit-this-page">
+  <a class="muted-link" href="https://github.com/ghassbomb/maths-track/edit/main/proofs/how-to-prove-it/introduction.md" title="Edit this page">
+    <svg aria-hidden="true" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+      <path d="M4 20h4l10.5 -10.5a1.5 1.5 0 0 0 -4 -4l-10.5 10.5v4" />
+      <line x1="13.5" y1="6.5" x2="17.5" y2="10.5" />
+    </svg>
+    <span class="visually-hidden">Edit this page</span>
+  </a>
+</div><div class="theme-toggle-container theme-toggle-content">
+            <button class="theme-toggle">
+              <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
+              <svg class="theme-icon-when-auto"><use href="#svg-sun-half"></use></svg>
+              <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+              <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+            </button>
+          </div>
+          <label class="toc-overlay-icon toc-content-icon" for="__toc">
+            <div class="visually-hidden">Toggle table of contents sidebar</div>
+            <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+          </label>
+        </div>
+        <article role="main">
+          <section class="tex2jax_ignore mathjax_ignore" id="chapter-0-introduction">
+<h1>Chapter 0 — Introduction<a class="headerlink" href="#chapter-0-introduction" title="Link to this heading">#</a></h1>
+<section id="exercises">
+<h2>Exercises<a class="headerlink" href="#exercises" title="Link to this heading">#</a></h2>
+<ol class="arabic simple">
+<li><p>We know that, in <span class="math notranslate nohighlight">\(2^n - 1\)</span>, if <span class="math notranslate nohighlight">\(n\)</span> is composite, so is the answer.
+Composite numbers, by definition, can be written as <span class="math notranslate nohighlight">\(n = ab\)</span> such
+that <span class="math notranslate nohighlight">\(a &lt; n\)</span> and <span class="math notranslate nohighlight">\(b &lt; n\)</span>. Furthermore, we know that <span class="math notranslate nohighlight">\(xy = 2^n-1\)</span>,
+where <span class="math notranslate nohighlight">\(x = 2^b-1\)</span>, and <span class="math notranslate nohighlight">\(y = 1+2^b+2^{2b}+...+2^{(a-1)b}\)</span>.</p>
+<ol class="arabic simple">
+<li><p><span class="math notranslate nohighlight">\(n=15=3\cdot5\)</span>, and we substitute those factors to get
+<span class="math notranslate nohighlight">\(x=2^5-1= 31\)</span> and <span class="math notranslate nohighlight">\(y=1+2^5+2^{10}=1057\)</span>. <span class="math notranslate nohighlight">\(xy=2^n-1\)</span>, so
+<span class="math notranslate nohighlight">\(31\cdot1057=2^{15}-1\)</span>.</p></li>
+<li><p>As mentioned in the last part, <span class="math notranslate nohighlight">\(xy = 2^n-1\)</span> where <span class="math notranslate nohighlight">\(n=ab\)</span>. We
+obtained <span class="math notranslate nohighlight">\(a\)</span> and <span class="math notranslate nohighlight">\(b\)</span>, the factors of <span class="math notranslate nohighlight">\(32,767\)</span>, in the last part:
+<span class="math notranslate nohighlight">\(31\)</span> and <span class="math notranslate nohighlight">\(1057\)</span>. Substituting in, we get <span class="math notranslate nohighlight">\(x=2^{1057}-1\)</span> or
+<span class="math notranslate nohighlight">\(x= 2^{31} - 1\)</span> as factors of <span class="math notranslate nohighlight">\(2^{32767}\)</span>.</p></li>
+</ol>
+</li>
+<li><p>From the data in Table 1 below, we can make the following
+hypotheses:</p>
+<ol class="arabic simple">
+<li><p><span class="math notranslate nohighlight">\(3^n-1\)</span> is composite and even.</p>
+<ul class="simple">
+<li><p>And, indeed, extending the table to 25 terms of <span class="math notranslate nohighlight">\(n\)</span> tells us
+that <span class="math notranslate nohighlight">\(3^n - 1\)</span> will always be composite, and always be even.</p></li>
+<li><p>Therefore: Supposing <span class="math notranslate nohighlight">\(n\)</span> is an integer greater than <span class="math notranslate nohighlight">\(1\)</span>,
+<span class="math notranslate nohighlight">\(3^n-1\)</span> is a composite number.</p></li>
+</ul>
+</li>
+<li><p><span class="math notranslate nohighlight">\(3^n-2^n\)</span> is only prime if <span class="math notranslate nohighlight">\(n\)</span> is prime, and <em>even</em> then it is
+not guaranteed (as in the case of <span class="math notranslate nohighlight">\(n=7\)</span>).</p>
+<ul class="simple">
+<li><p>Extending the table to 20 terms of <span class="math notranslate nohighlight">\(n\)</span> tells us that
+<span class="math notranslate nohighlight">\(3^n - 2^n\)</span> is variably prime, as the only prime (after the
+ones on the table) is when <span class="math notranslate nohighlight">\(n=17\)</span>. But, when <span class="math notranslate nohighlight">\(3^n-2^n\)</span> <em>is</em>
+prime, <span class="math notranslate nohighlight">\(n\)</span> is also necessarily prime.</p></li>
+<li><p>Therefore: Supposing <span class="math notranslate nohighlight">\(n\)</span> is an integer greater than 1,
+<span class="math notranslate nohighlight">\(3^n-2^n\)</span> is a prime or composite <em>only</em> if <span class="math notranslate nohighlight">\(n\)</span> is a prime,
+and is otherwise a composite.</p></li>
+</ul>
+</li>
+</ol>
+</li>
+</ol>
+<figure>
+<figcaption>Table 1: Checking Primality</figcaption>
+<div class="table-wrapper colwidths-auto docutils container">
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p><span class="math notranslate nohighlight">\(n\)</span></p></th>
+<th class="head"><p>Is <span class="math notranslate nohighlight">\(n\)</span> prime?</p></th>
+<th class="head"><p><span class="math notranslate nohighlight">\(3^n-1\)</span></p></th>
+<th class="head"><p>Is <span class="math notranslate nohighlight">\(3^n-1\)</span> prime?</p></th>
+<th class="head"><p><span class="math notranslate nohighlight">\(3^n-2^n\)</span></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>2</p></td>
+<td><p>Yes</p></td>
+<td><p>8</p></td>
+<td><p>No</p></td>
+<td><p>Yes</p></td>
+</tr>
+<tr class="row-odd"><td><p>3</p></td>
+<td><p>Yes</p></td>
+<td><p>26</p></td>
+<td><p>No</p></td>
+<td><p>Yes</p></td>
+</tr>
+<tr class="row-even"><td><p>4</p></td>
+<td><p>No</p></td>
+<td><p>80</p></td>
+<td><p>No</p></td>
+<td><p>No</p></td>
+</tr>
+<tr class="row-odd"><td><p>5</p></td>
+<td><p>Yes</p></td>
+<td><p>242</p></td>
+<td><p>No</p></td>
+<td><p>Yes</p></td>
+</tr>
+<tr class="row-even"><td><p>6</p></td>
+<td><p>No</p></td>
+<td><p>728</p></td>
+<td><p>No</p></td>
+<td><p>No</p></td>
+</tr>
+<tr class="row-odd"><td><p>7</p></td>
+<td><p>Yes</p></td>
+<td><p>2186</p></td>
+<td><p>No</p></td>
+<td><p>No</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</figure>
+<ol class="arabic simple" start="3">
+<li><p>The method given in Theorem 3 asserts that, simply, for a finite
+list of primes <span class="math notranslate nohighlight">\(p_1p_2...p_n\)</span>, the product <span class="math notranslate nohighlight">\(m=p_1p_2...p_n + 1\)</span> has
+a prime factor <span class="math notranslate nohighlight">\(q\)</span> that is greater than <span class="math notranslate nohighlight">\(p_n\)</span> and thus not in the
+list.</p>
+<ol class="arabic simple">
+<li><p><span class="math notranslate nohighlight">\(m=2\cdot3\cdot5\cdot7+1 = 211\)</span>; since 211 is itself a different
+prime, we do not need to find another prime factor.</p></li>
+<li><p><span class="math notranslate nohighlight">\(m=2\cdot5\cdot11+1=111\)</span>; we can factorize this to get
+<span class="math notranslate nohighlight">\(m=3\cdot37\)</span>, where 3 and 37 are different primes.</p></li>
+</ol>
+</li>
+<li><p>For positive integer <span class="math notranslate nohighlight">\(n\)</span>, Theorem 4 showed us how to find integer
+<span class="math notranslate nohighlight">\(x\)</span> where <span class="math notranslate nohighlight">\(x, ~x+1, ~x+2,~...,~x+n\)</span> are all composite. Assuming
+<span class="math notranslate nohighlight">\(n=5\)</span>, <span class="math notranslate nohighlight">\(x=(5+1)!+2=722\)</span>. Therefore: <span class="math notranslate nohighlight">\(722, ~723, ~724, ~725, ~726\)</span>
+are 5 consecutive composite numbers; where all can be written as
+<span class="math notranslate nohighlight">\(2k\)</span>.</p></li>
+<li><p>In the mentioned discussion, we found that every even perfect number
+can be written as <span class="math notranslate nohighlight">\((2^{n-1})(2^n-1)\)</span>, where <span class="math notranslate nohighlight">\(2^n-1\)</span> is prime.
+<span class="math notranslate nohighlight">\(n=2, ~3\)</span>, when substituted into <span class="math notranslate nohighlight">\(2^n-1\)</span>, give us prime numbers 3
+and 7, and thus fit the criteria. From these two, we get the perfect
+numbers <span class="math notranslate nohighlight">\(6=1+2+3\)</span> and <span class="math notranslate nohighlight">\(28=1+2+4+7+14\)</span>.</p></li>
+</ol>
+</section>
+</section>
+
+        </article>
+      </div>
+      <footer>
+        
+        <div class="related-pages">
+          <a class="next-page" href="ch1.html">
+              <div class="page-info">
+                <div class="context">
+                  <span>Next</span>
+                </div>
+                <div class="title">Chapter 1 — Sentential Logic</div>
+              </div>
+              <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
+            </a>
+          <a class="prev-page" href="index.html">
+              <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
+              <div class="page-info">
+                <div class="context">
+                  <span>Previous</span>
+                </div>
+                
+                <div class="title">How to Prove It, by Daniel J. Velleman</div>
+                
+              </div>
+            </a>
+        </div>
+        <div class="bottom-of-page">
+          <div class="left-details">
+            <div class="copyright">
+                Copyright &#169; 2024, Ghassan Shahzad
+            </div>
+            Made with <a href="https://www.sphinx-doc.org/">Sphinx</a> and <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
+            
+            <a href="https://github.com/pradyunsg/furo">Furo</a>
+            
+          </div>
+          <div class="right-details">
+            <div class="icons">
+              <a class="muted-link " href="https://github.com/ghassbomb/maths-track" aria-label="GitHub">
+                <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z"></path>
+                </svg>
+            </a>
+              
+            </div>
+          </div>
+        </div>
+        
+      </footer>
+    </div>
+    <aside class="toc-drawer">
+      
+      
+      <div class="toc-sticky toc-scroll">
+        <div class="toc-title-container">
+          <span class="toc-title">
+            On this page
+          </span>
+        </div>
+        <div class="toc-tree-container">
+          <div class="toc-tree">
+            <ul>
+<li><a class="reference internal" href="#">Chapter 0 — Introduction</a><ul>
+<li><a class="reference internal" href="#exercises">Exercises</a></li>
+</ul>
+</li>
+</ul>
+
+          </div>
+        </div>
+      </div>
+      
+      
+    </aside>
+  </div>
+</div><script src="../../_static/documentation_options.js?v=2709fde1"></script>
+    <script src="../../_static/doctools.js?v=888ff710"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/scripts/furo.js?v=32e29ea5"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-mml-chtml.min.js"></script>
+    </body>
+</html>

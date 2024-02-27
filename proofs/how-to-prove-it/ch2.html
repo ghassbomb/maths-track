@@ -1,0 +1,490 @@
+<!doctype html>
+<html class="no-js" lang="en" data-content_root="../../">
+  <head><meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1"/>
+    <meta name="color-scheme" content="light dark"><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+<link rel="index" title="Index" href="../../genindex.html" /><link rel="search" title="Search" href="../../search.html" /><link rel="next" title="Chapter 3 — Proofs" href="ch3.html" /><link rel="prev" title="Chapter 1 — Sentential Logic" href="ch1.html" />
+
+    <!-- Generated with Sphinx 7.2.6 and Furo 2024.01.29 -->
+        <title>Chapter 2 — Quantificational Logic - Maths Track</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/furo.css?v=135e06be" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/furo-extensions.css?v=36a5483c" />
+    
+    
+
+
+<style>
+  body {
+    --color-code-background: #f8f8f8;
+  --color-code-foreground: black;
+  
+  }
+  @media not print {
+    body[data-theme="dark"] {
+      --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+    }
+    @media (prefers-color-scheme: dark) {
+      body:not([data-theme="light"]) {
+        --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+      }
+    }
+  }
+</style></head>
+  <body>
+    
+    <script>
+      document.body.dataset.theme = localStorage.getItem("theme") || "auto";
+    </script>
+    
+
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+  <symbol id="svg-toc" viewBox="0 0 24 24">
+    <title>Contents</title>
+    <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 1024 1024">
+      <path d="M408 442h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8zm-8 204c0 4.4 3.6 8 8 8h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56zm504-486H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zm0 632H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zM115.4 518.9L271.7 642c5.8 4.6 14.4.5 14.4-6.9V388.9c0-7.4-8.5-11.5-14.4-6.9L115.4 505.1a8.74 8.74 0 0 0 0 13.8z"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-menu" viewBox="0 0 24 24">
+    <title>Menu</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-menu">
+      <line x1="3" y1="12" x2="21" y2="12"></line>
+      <line x1="3" y1="6" x2="21" y2="6"></line>
+      <line x1="3" y1="18" x2="21" y2="18"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-arrow-right" viewBox="0 0 24 24">
+    <title>Expand</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-chevron-right">
+      <polyline points="9 18 15 12 9 6"></polyline>
+    </svg>
+  </symbol>
+  <symbol id="svg-sun" viewBox="0 0 24 24">
+    <title>Light mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="feather-sun">
+      <circle cx="12" cy="12" r="5"></circle>
+      <line x1="12" y1="1" x2="12" y2="3"></line>
+      <line x1="12" y1="21" x2="12" y2="23"></line>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+      <line x1="1" y1="12" x2="3" y2="12"></line>
+      <line x1="21" y1="12" x2="23" y2="12"></line>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-moon" viewBox="0 0 24 24">
+    <title>Dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-moon">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z" />
+    </svg>
+  </symbol>
+  <symbol id="svg-sun-half" viewBox="0 0 24 24">
+    <title>Auto light/dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-shadow">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+      <circle cx="12" cy="12" r="9" />
+      <path d="M13 12h5" />
+      <path d="M13 15h4" />
+      <path d="M13 18h1" />
+      <path d="M13 9h4" />
+      <path d="M13 6h1" />
+    </svg>
+  </symbol>
+</svg>
+
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation">
+<input type="checkbox" class="sidebar-toggle" name="__toc" id="__toc">
+<label class="overlay sidebar-overlay" for="__navigation">
+  <div class="visually-hidden">Hide navigation sidebar</div>
+</label>
+<label class="overlay toc-overlay" for="__toc">
+  <div class="visually-hidden">Hide table of contents sidebar</div>
+</label>
+
+
+
+<div class="page">
+  <header class="mobile-header">
+    <div class="header-left">
+      <label class="nav-overlay-icon" for="__navigation">
+        <div class="visually-hidden">Toggle site navigation sidebar</div>
+        <i class="icon"><svg><use href="#svg-menu"></use></svg></i>
+      </label>
+    </div>
+    <div class="header-center">
+      <a href="../../index.html"><div class="brand">Maths Track</div></a>
+    </div>
+    <div class="header-right">
+      <div class="theme-toggle-container theme-toggle-header">
+        <button class="theme-toggle">
+          <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
+          <svg class="theme-icon-when-auto"><use href="#svg-sun-half"></use></svg>
+          <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+          <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+        </button>
+      </div>
+      <label class="toc-overlay-icon toc-header-icon" for="__toc">
+        <div class="visually-hidden">Toggle table of contents sidebar</div>
+        <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+      </label>
+    </div>
+  </header>
+  <aside class="sidebar-drawer">
+    <div class="sidebar-container">
+      
+      <div class="sidebar-sticky"><a class="sidebar-brand" href="../../index.html">
+  
+  
+  <span class="sidebar-brand-text">Maths Track</span>
+  
+</a><form class="sidebar-search-container" method="get" action="../../search.html" role="search">
+  <input class="sidebar-search" placeholder="Search" name="q" aria-label="Search">
+  <input type="hidden" name="check_keywords" value="yes">
+  <input type="hidden" name="area" value="default">
+</form>
+<div id="searchbox"></div><div class="sidebar-scroll"><div class="sidebar-tree">
+  <ul class="current">
+<li class="toctree-l1 current has-children"><a class="reference internal" href="../index.html">Proofwriting and Problem-Solving</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><div class="visually-hidden">Toggle navigation of Proofwriting and Problem-Solving</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
+<li class="toctree-l2"><a class="reference external" href="http://localhost:8000/_static/how-to-solve-it.pdf">How to Solve It, by George Polya</a></li>
+<li class="toctree-l2 current has-children"><a class="reference internal" href="index.html">How to Prove It, by Daniel J. Velleman</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><div class="visually-hidden">Toggle navigation of How to Prove It, by Daniel J. Velleman</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="introduction.html">Chapter 0 — Introduction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ch1.html">Chapter 1 — Sentential Logic</a></li>
+<li class="toctree-l3 current current-page"><a class="current reference internal" href="#">Chapter 2 — Quantificational Logic</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ch3.html">Chapter 3 — Proofs</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../linear-algebra/index.html">Linear Algebra</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" role="switch" type="checkbox"/><label for="toctree-checkbox-3"><div class="visually-hidden">Toggle navigation of Linear Algebra</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference external" href="http://localhost:8000/_static/serge-lang.pdf">Linear Algebra, by Serge Lang</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference external" href="https://ghassbomb.github.io/">My Website</a></li>
+</ul>
+
+</div>
+</div>
+
+      </div>
+      
+    </div>
+  </aside>
+  <div class="main">
+    <div class="content">
+      <div class="article-container">
+        <a href="#" class="back-to-top muted-link">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12z"></path>
+          </svg>
+          <span>Back to top</span>
+        </a>
+        <div class="content-icon-container">
+          <div class="edit-this-page">
+  <a class="muted-link" href="https://github.com/ghassbomb/maths-track/edit/main/proofs/how-to-prove-it/ch2.md" title="Edit this page">
+    <svg aria-hidden="true" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+      <path d="M4 20h4l10.5 -10.5a1.5 1.5 0 0 0 -4 -4l-10.5 10.5v4" />
+      <line x1="13.5" y1="6.5" x2="17.5" y2="10.5" />
+    </svg>
+    <span class="visually-hidden">Edit this page</span>
+  </a>
+</div><div class="theme-toggle-container theme-toggle-content">
+            <button class="theme-toggle">
+              <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
+              <svg class="theme-icon-when-auto"><use href="#svg-sun-half"></use></svg>
+              <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+              <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+            </button>
+          </div>
+          <label class="toc-overlay-icon toc-content-icon" for="__toc">
+            <div class="visually-hidden">Toggle table of contents sidebar</div>
+            <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+          </label>
+        </div>
+        <article role="main">
+          <section class="tex2jax_ignore mathjax_ignore" id="chapter-2-quantificational-logic">
+<h1>Chapter 2 — Quantificational Logic<a class="headerlink" href="#chapter-2-quantificational-logic" title="Link to this heading">#</a></h1>
+<section id="chapter-2-1-quantifiers">
+<h2>Chapter 2.1 — Quantifiers<a class="headerlink" href="#chapter-2-1-quantifiers" title="Link to this heading">#</a></h2>
+<section id="notes">
+<h3>Notes<a class="headerlink" href="#notes" title="Link to this heading">#</a></h3>
+<p>Functional propositions such as <span class="math notranslate nohighlight">\(f(x)\)</span> can be true for any number of <span class="math notranslate nohighlight">\(x\)</span>
+within their universe of discourse <span class="math notranslate nohighlight">\(U\)</span>. But if we wish to express, or
+‘quantify’, the number or range of values they are true for, we can use
+the following quantifiers:</p>
+<ol class="arabic simple">
+<li><p>If <span class="math notranslate nohighlight">\(f(x)\)</span> is true for <em>every</em> <span class="math notranslate nohighlight">\(x\)</span> within <span class="math notranslate nohighlight">\(U\)</span>, then we can express
+this as: <span class="math notranslate nohighlight">\(\forall x f(x)\)</span>. Grammatically, this means something like
+‘For all <span class="math notranslate nohighlight">\(x\)</span>, <span class="math notranslate nohighlight">\(f(x)\)</span> (is true)’. Remember that this means the truth
+set of our function proposition is the same as its universe of
+discourse. Thus, we can also say that <span class="math notranslate nohighlight">\(f(x)\)</span> is ‘universally true’.</p></li>
+<li><p>If <span class="math notranslate nohighlight">\(f(x)\)</span> is true for <em>at least</em> one <span class="math notranslate nohighlight">\(x\)</span> within <span class="math notranslate nohighlight">\(U\)</span>, then we can
+express this as: <span class="math notranslate nohighlight">\(\exists x f(x)\)</span>. Grammatically, this means
+something like ‘There exists an <span class="math notranslate nohighlight">\(x\)</span>, such that <span class="math notranslate nohighlight">\(f(x)\)</span>’. This means
+the truth set of <span class="math notranslate nohighlight">\(f(x)\)</span> is not empty, or null.</p></li>
+</ol>
+<p>We say that quantifiers <em>bind</em> a variable. For instance, take the
+following quantified statement: <span class="math notranslate nohighlight">\(\forall x L(x, y)\)</span> where <span class="math notranslate nohighlight">\(L(x,y)\)</span> means
+‘<span class="math notranslate nohighlight">\(x\)</span> likes <span class="math notranslate nohighlight">\(y\)</span>’. Here, <span class="math notranslate nohighlight">\(x\)</span> is essentially irrelevant. Everyone
+(<span class="math notranslate nohighlight">\(\forall x\)</span>) is said to like <span class="math notranslate nohighlight">\(y\)</span>, so we only need to know which <span class="math notranslate nohighlight">\(y\)</span>
+this statement is true for; which person or thing <span class="math notranslate nohighlight">\(y\)</span> is liked by
+everyone within the universe of discourse. <span class="math notranslate nohighlight">\(x\)</span> is a bound variable,
+whereas <span class="math notranslate nohighlight">\(y\)</span> is a free variable. Interestingly, grammatically, we can
+express this statement as: ‘Everyone likes <span class="math notranslate nohighlight">\(y\)</span>’. If it was
+<span class="math notranslate nohighlight">\(\exists x L(x, y)\)</span> we would say ‘Someone likes <span class="math notranslate nohighlight">\(y\)</span>’.</p>
+<p>We can also use multiple quantifiers. For instance, if we were to say
+‘all students like someone’:
+<span class="math notranslate nohighlight">\(\forall x (S(x) \wedge \exists y L(x, y))\)</span>. Note that all variables are
+bound in this statement; you can usually determine such features from
+the grammatical form of the statement. Within ‘<strong>all</strong> students like
+<strong>some</strong>one’, all nouns are quantified. Thus, in logical form, if they
+are quantified, they are bound.</p>
+<p>Order of quantifiers is important. Let’s go back to the statement
+<span class="math notranslate nohighlight">\(\forall x L(x, y)\)</span>, ‘There is a person <span class="math notranslate nohighlight">\(y\)</span> whom everyone likes’. We can
+rewrite the logic to fit the statement ‘Everyone likes someone’:
+<span class="math notranslate nohighlight">\(\forall x \exists y L(x,y)\)</span>. What happens if we swap the two
+quantifiers? If the statement is changed to
+<span class="math notranslate nohighlight">\(\exists y \forall x L(x,y)\)</span>, it means ‘Someone exists whom everyone
+likes’. There is a subtle difference in these statements: in the first
+statement, we mean that everyone has someone they like. In the second
+statement, we mean that there exists a single person who is universally
+liked by everyone.</p>
+</section>
+<section id="exercises">
+<h3>Exercises<a class="headerlink" href="#exercises" title="Link to this heading">#</a></h3>
+<ol class="arabic simple">
+<li><ol class="arabic simple">
+<li><p>Where <span class="math notranslate nohighlight">\(F(x, y)\)</span> means ‘<span class="math notranslate nohighlight">\(x\)</span> has forgiven <span class="math notranslate nohighlight">\(y\)</span>’, and <span class="math notranslate nohighlight">\(S(x)\)</span> means
+‘<span class="math notranslate nohighlight">\(x\)</span> is a saint’.<br />
+<span class="math notranslate nohighlight">\(\forall x (\exists y F(x,y) \rightarrow S(x))\)</span></p></li>
+<li><p>Where <span class="math notranslate nohighlight">\(C(x)\)</span> means ‘<span class="math notranslate nohighlight">\(x\)</span> is in calculus class’, <span class="math notranslate nohighlight">\(D(y)\)</span> means ‘<span class="math notranslate nohighlight">\(y\)</span>
+is in discrete maths class’, and <span class="math notranslate nohighlight">\(S(x,y)\)</span> means ‘<span class="math notranslate nohighlight">\(x\)</span> is smarter
+than <span class="math notranslate nohighlight">\(y\)</span>’.<br />
+<span class="math notranslate nohighlight">\(\neg \exists x (C(x) \wedge \forall y D(y) \rightarrow  S(x,y))\)</span></p></li>
+<li><p>Where <span class="math notranslate nohighlight">\(m\)</span> means Mary, and <span class="math notranslate nohighlight">\(L(x, y)\)</span> means ‘<span class="math notranslate nohighlight">\(x\)</span> likes <span class="math notranslate nohighlight">\(y\)</span>’.<br />
+<span class="math notranslate nohighlight">\(\forall x (\neg (x = m) \rightarrow L(x, m))\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(S(x, y)\)</span> means ‘<span class="math notranslate nohighlight">\(x\)</span> saw a police officer <span class="math notranslate nohighlight">\(y\)</span>’, <span class="math notranslate nohighlight">\(j\)</span> means Jane,
+and <span class="math notranslate nohighlight">\(r\)</span> means Roger.<br />
+<span class="math notranslate nohighlight">\(\exists y S(j, y) \wedge \exists y S(r, y)\)</span></p></li>
+<li><p>With the same meanings:<br />
+<span class="math notranslate nohighlight">\(\exists y (S(j, y) \wedge S(r, y))\)</span></p></li>
+</ol>
+</li>
+<li><ol class="arabic simple">
+<li><p>Every man who is not married to anyone is unhappy.</p></li>
+<li><p>There exist parents with children <span class="math notranslate nohighlight">\(x\)</span> who have aunts <span class="math notranslate nohighlight">\(z\)</span>.</p></li>
+</ol>
+</li>
+<li><ol class="arabic simple">
+<li><p>True.</p></li>
+<li><p>False.</p></li>
+<li><p>False.</p></li>
+<li><p>True.</p></li>
+<li><p>True.</p></li>
+<li><p>False.</p></li>
+</ol>
+</li>
+</ol>
+</section>
+</section>
+<section id="chapter-2-2-equivalences-involving-quantifiers">
+<h2>Chapter 2.2 — Equivalences Involving Quantifiers<a class="headerlink" href="#chapter-2-2-equivalences-involving-quantifiers" title="Link to this heading">#</a></h2>
+<section id="id1">
+<h3>Notes<a class="headerlink" href="#id1" title="Link to this heading">#</a></h3>
+<p><span class="math notranslate nohighlight">\(\neg \exists xA(x)\)</span>, assuming <span class="math notranslate nohighlight">\(A(x)\)</span> means ‘<span class="math notranslate nohighlight">\(x\)</span> is annoying’ and our
+universe of discourse is every human, grammatically equates to ‘There
+exists no human who is annoying’. However, another way to express this
+would be <span class="math notranslate nohighlight">\(\forall x \neg A(x)\)</span>, or ‘Every human who exists is not
+annoying’. Here, we’re essentially flipping a negative statement to mean
+the same as a positive statement.</p>
+<p>We do this by flipping the other proposition in the statement like we
+flipped the quantifiers. We can expand this rule further; assuming that
+<span class="math notranslate nohighlight">\(\neg \exists x\)</span> and <span class="math notranslate nohighlight">\(\forall x\)</span> are opposites, then <span class="math notranslate nohighlight">\(\neg \forall x\)</span>
+and <span class="math notranslate nohighlight">\(\exists x\)</span> are also opposites. Thus, we can say that:</p>
+<div class="math-wrapper docutils container">
+<div class="math notranslate nohighlight">
+\[ \begin{align}\begin{aligned}\begin{split}
+\begin{aligned}
+  \neg \exists x A(x) &amp; = \forall x \neg A(x) \\
+  \exists x \neg A(x) &amp; = \neg \forall x A(x)
+\end{aligned}$$ where $A(x)$ can be any function proposition. This is
+one equivalence.\end{split}\\Another equivalence involves two *identical* quantifiers being used in
+succession. We determined previously that two different quantifiers
+affect meaning when swapped. For instance,
+$\forall x \exists y (f(x, y)) \neq \exists y \forall x (f(x, y))$. The
+same is not true of $\forall x \forall y (f(x, y))$ and
+$\forall y \forall x (f(x, y))$. Assuming $f(x, y)$ means $x$ is friends
+with $y$, these statements mean 'everybody ($x$) is friends with
+everybody ($y$)', and 'everybody ($y$) is friends with everybody ($x$)';
+thus, equivalent. The same holds true if it were:
+$\exists y \exists x (f(x, y))$.\\When writing quantifiers, you use the following form to denote universes
+of discourse: $\forall x \in \mathbb{R} (x^2&gt;0)$; which means 'Every
+real number has a square greater than 0'. Yet another way to put it
+would be 'All $x$ are real numbers, and (thus) $x^2$ is greater than
+zero' which, in logical form, would be:
+$\forall x (x \in \mathbb{R} \rightarrow x^2 \ge 0)$. The reason for the
+conditional connective is simple: since the statement is universally
+true for every element of the universe of discourse ($\mathbb{R}$), it
+is a matter of course that 'if $x$ is an element of $\mathbb{R}$, then
+it is true'. If it were that $\exists x \in \mathbb{R} (x^2&gt;0)$, then
+its equivalent would be $\exists x (x \in \mathbb{R} \wedge x^2 &gt; 0)$.
+We say that, as a quantifier bounds a variable, a universe of discourse
+bounds the quantifier, making it a *bounded quantifier*.\\Now, finally, let us discuss the expansion of quantified statements. Is
+$\forall x (f(x) \wedge g(x)) = \forall x f(x) \wedge \forall x g(x)$?
+Yes. It's merely the difference between '$x$ is always $f(x)$ and
+$g(x)$' and '$x$ is always $f(x)$ and $x$ is always $g(x)$'. Is
+$\exists x (f(x) \wedge g(x)) = \exists x f(x) \wedge \exists x g(x)$?
+No. It's the difference between: 'some $x$ are $f(x)$ *and* $g(x)$' and
+'some $x$ are $f(x)$ and some $x$ are $g(x)$'. This is false because we
+mean to say that there exist some $x$ that satisfy both propositions
+simultaneously, not that there exist some $x$ that satisfy one
+proposition and some $x$ that satisfy the other.\\### Exercises\\1.  1.  Where $M(x)$ means '$x$ is majoring in math', $F(x,y)$ means
+        '$x$ and $y$ are friends', and $H(y)$ means '$y$ needs help with
+        their homework'. 
+        \end{aligned}\end{align} \]</div>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>    \begin{aligned}
+      \neg \forall x[M(x) \rightarrow \exists y( F(x,y) \wedge H(y))] \\\\
+      \exists x \neg[M(x) \rightarrow \exists y( F(x,y) \wedge H(y))] \\\\
+      \exists x[M(x) \wedge \neg \exists y(F(x,y) \wedge H(y))] \\\\
+      \exists x[M(x) \wedge  \forall y\neg(F(x,y) \wedge H(y))] \\\\
+      \exists x[M(x) \wedge  \forall y(\neg F(x,y) \vee \neg H(y))]
+    \end{aligned}
+    $$
+
+2.  Where $R(x, y)$ means &#39;$x$ has a roommate $y$&#39; and $D(y, z)$
+    means &#39;$y$ dislikes $z$&#39;. 
+    $$
+    \begin{aligned}
+      \forall x \exists y (R(x,y) \wedge \forall z D(y, z)) \\\\
+      \exists x \forall y \neg(R(x,y) \wedge \forall z D(y, z)) \\\\
+      \exists x \forall y (\neg R(x,y) \vee \exists z \neg D(y, z)) \\\\
+    \end{aligned}
+    $$
+</pre></div>
+</div>
+</section>
+</section>
+<section id="chapter-2-3-more-operations-on-sets">
+<h2>Chapter 2.3 — More Operations on Sets<a class="headerlink" href="#chapter-2-3-more-operations-on-sets" title="Link to this heading">#</a></h2>
+<section id="id2">
+<h3>Notes<a class="headerlink" href="#id2" title="Link to this heading">#</a></h3>
+<p>Previously, we used set-builder notation like this: <span class="math notranslate nohighlight">\(\\{n^2 \mid n \in \mathbb{N} \\}\)</span> — this set contains every perfect square. With quantifiers, we can rephrase this as: <span class="math notranslate nohighlight">\(\\{ x \mid \exists n \in \mathbb{N} (x = n^2) \\}\)</span>. These two sets are the exact same, and we can thus say that: <span class="math notranslate nohighlight">\(x \in \\{n^2 \mid n \in \mathbb{N}\\}\)</span> and <span class="math notranslate nohighlight">\(\exists n \in \mathbb{N} (x = n^2)\)</span>.</p>
+<p>We can define an <em>indexed family of sets</em>, which is a number of related sets with which we use an index to distinguish between them. For instance, the indexed family of sets of Nobel Prize winners, where the index set <span class="math notranslate nohighlight">\(P\)</span> contains the various Nobel Prizes (<span class="math notranslate nohighlight">\(p\)</span>) and the set <span class="math notranslate nohighlight">\(W_p\)</span> contains the winners of the given Nobel Prize. For instance: <span class="math notranslate nohighlight">\(\text{Marie Curie} \in W_\text{Physics}\)</span>. We can define the family like this:</p>
+<ol class="arabic simple">
+<li><p>We create the <em>index set:</em> <span class="math notranslate nohighlight">\(P = \\{p \mid p \text{ is a Nobel Prize}\\}\)</span>.</p></li>
+<li><p>We use the index set to define our family of sets: <span class="math notranslate nohighlight">\(W_p = \\{w \mid w \text{ is a winner of the Nobel Prize } p\\}\)</span>.</p></li>
+</ol>
+<p>In the same vein, but on a smaller scale, we can define set <em>families</em>, which consist of multiple sets. For instance, <span class="math notranslate nohighlight">\(X = \\{P, I\\}\)</span> is the family of the two sets: <span class="math notranslate nohighlight">\(I\)</span> (<span class="math notranslate nohighlight">\(1 - 100\)</span>) and <span class="math notranslate nohighlight">\(P\)</span> (<span class="math notranslate nohighlight">\(1^2 - 100^2\)</span>). Note that elements of the set <span class="math notranslate nohighlight">\(P\)</span> or <span class="math notranslate nohighlight">\(I\)</span> are not elements of <span class="math notranslate nohighlight">\(X\)</span>; there are only two elements in <span class="math notranslate nohighlight">\(X\)</span>: <span class="math notranslate nohighlight">\(P\)</span> and <span class="math notranslate nohighlight">\(I\)</span>. For instance, <span class="math notranslate nohighlight">\(1 \notin X\)</span>, even though <span class="math notranslate nohighlight">\(1 \in I\)</span>; <span class="math notranslate nohighlight">\(I \in X\)</span> is true, however.</p>
+<p>Let’s say, however, that you <em>want</em> the family set <span class="math notranslate nohighlight">\(X\)</span> to contain the elements of <span class="math notranslate nohighlight">\(P\)</span> and <span class="math notranslate nohighlight">\(I\)</span>; in that case, you would use <span class="math notranslate nohighlight">\(\bigcup X\)</span>. <span class="math notranslate nohighlight">\(\bigcup X\)</span> is the union of the family <span class="math notranslate nohighlight">\(X\)</span>, and thus the set of elements of all the sets contained within the family (<span class="math notranslate nohighlight">\(I\)</span>, and <span class="math notranslate nohighlight">\(P\)</span> in this case). We can express it as such: <span class="math notranslate nohighlight">\(X = \\{x \mid x \in I \vee x \in P\\}\)</span>. The intersection of a family, <span class="math notranslate nohighlight">\(\bigcap X\)</span>, would contain all the elements common to each of the sets in that family. In this case, it would be numbers like <span class="math notranslate nohighlight">\(1\)</span> and <span class="math notranslate nohighlight">\(4\)</span>, that are both within the range <span class="math notranslate nohighlight">\(1-100\)</span> and are perfect squares.</p>
+<p>What if the family is indexed? The union of an indexed family of sets would function the exact same, though we have a special notation for it: $<span class="math notranslate nohighlight">\(\bigcap_{p \in P} W_p\)</span>$ Here, the union set would contain every Nobel Prize winner.</p>
+</section>
+</section>
+</section>
+
+        </article>
+      </div>
+      <footer>
+        
+        <div class="related-pages">
+          <a class="next-page" href="ch3.html">
+              <div class="page-info">
+                <div class="context">
+                  <span>Next</span>
+                </div>
+                <div class="title">Chapter 3 — Proofs</div>
+              </div>
+              <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
+            </a>
+          <a class="prev-page" href="ch1.html">
+              <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
+              <div class="page-info">
+                <div class="context">
+                  <span>Previous</span>
+                </div>
+                
+                <div class="title">Chapter 1 — Sentential Logic</div>
+                
+              </div>
+            </a>
+        </div>
+        <div class="bottom-of-page">
+          <div class="left-details">
+            <div class="copyright">
+                Copyright &#169; 2024, Ghassan Shahzad
+            </div>
+            Made with <a href="https://www.sphinx-doc.org/">Sphinx</a> and <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
+            
+            <a href="https://github.com/pradyunsg/furo">Furo</a>
+            
+          </div>
+          <div class="right-details">
+            <div class="icons">
+              <a class="muted-link " href="https://github.com/ghassbomb/maths-track" aria-label="GitHub">
+                <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z"></path>
+                </svg>
+            </a>
+              
+            </div>
+          </div>
+        </div>
+        
+      </footer>
+    </div>
+    <aside class="toc-drawer">
+      
+      
+      <div class="toc-sticky toc-scroll">
+        <div class="toc-title-container">
+          <span class="toc-title">
+            On this page
+          </span>
+        </div>
+        <div class="toc-tree-container">
+          <div class="toc-tree">
+            <ul>
+<li><a class="reference internal" href="#">Chapter 2 — Quantificational Logic</a><ul>
+<li><a class="reference internal" href="#chapter-2-1-quantifiers">Chapter 2.1 — Quantifiers</a><ul>
+<li><a class="reference internal" href="#notes">Notes</a></li>
+<li><a class="reference internal" href="#exercises">Exercises</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#chapter-2-2-equivalences-involving-quantifiers">Chapter 2.2 — Equivalences Involving Quantifiers</a><ul>
+<li><a class="reference internal" href="#id1">Notes</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#chapter-2-3-more-operations-on-sets">Chapter 2.3 — More Operations on Sets</a><ul>
+<li><a class="reference internal" href="#id2">Notes</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+          </div>
+        </div>
+      </div>
+      
+      
+    </aside>
+  </div>
+</div><script src="../../_static/documentation_options.js?v=2709fde1"></script>
+    <script src="../../_static/doctools.js?v=888ff710"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/scripts/furo.js?v=32e29ea5"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-mml-chtml.min.js"></script>
+    </body>
+</html>

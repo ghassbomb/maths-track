@@ -1,0 +1,36 @@
+# Maths Track
+
+## The Plan
+
+My goal is to work through a (roughly) **undergraduate** course in Mathematics, within an year. The actual notes are in LaTeX PDF files, which you can download — since Sphinx maths support is pretty limited.
+```{warning}
+This list is **not** final, and it may be subject to changes. I will **not** be linearly solving these books, either — I will sometimes go back to a previous book at a certain time, solve two books simultaneously, etc.
+```
+***
+
+```{list-table}
+:widths: 70 30
+:header-rows: 1
+
+*   - Book
+    - Field
+*   - [How to Prove It, by Daniel J. Velleman](./proofs/how-to-prove-it/index.md)
+    - Proofwriting
+*   - [How to Solve It, by George Polya](./proofs/index.md)
+    - Problem Solving
+*   - [Linear Algebra, by Serge Lang](./linear-algebra/index.md)
+    - Linear Algebra
+*   - Undergraduate Analysis, by Serge Lang
+    - Real Analysis
+*   - Complex Analysis, by Joseph Bak, et. al
+    - Complex Analysis
+*   - Visual Complex Analysis, by Tristan Needham
+    - Complex Analysis
+```
+
+```{toctree}
+:hidden:
+proofs/index
+linear-algebra/index
+My Website <https://ghassbomb.github.io/>
+```

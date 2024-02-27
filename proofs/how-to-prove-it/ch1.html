@@ -1,0 +1,948 @@
+<!doctype html>
+<html class="no-js" lang="en" data-content_root="../../">
+  <head><meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1"/>
+    <meta name="color-scheme" content="light dark"><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+<link rel="index" title="Index" href="../../genindex.html" /><link rel="search" title="Search" href="../../search.html" /><link rel="next" title="Chapter 2 — Quantificational Logic" href="ch2.html" /><link rel="prev" title="Chapter 0 — Introduction" href="introduction.html" />
+
+    <!-- Generated with Sphinx 7.2.6 and Furo 2024.01.29 -->
+        <title>Chapter 1 — Sentential Logic - Maths Track</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/furo.css?v=135e06be" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/furo-extensions.css?v=36a5483c" />
+    
+    
+
+
+<style>
+  body {
+    --color-code-background: #f8f8f8;
+  --color-code-foreground: black;
+  
+  }
+  @media not print {
+    body[data-theme="dark"] {
+      --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+    }
+    @media (prefers-color-scheme: dark) {
+      body:not([data-theme="light"]) {
+        --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+      }
+    }
+  }
+</style></head>
+  <body>
+    
+    <script>
+      document.body.dataset.theme = localStorage.getItem("theme") || "auto";
+    </script>
+    
+
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+  <symbol id="svg-toc" viewBox="0 0 24 24">
+    <title>Contents</title>
+    <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 1024 1024">
+      <path d="M408 442h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8zm-8 204c0 4.4 3.6 8 8 8h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56zm504-486H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zm0 632H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zM115.4 518.9L271.7 642c5.8 4.6 14.4.5 14.4-6.9V388.9c0-7.4-8.5-11.5-14.4-6.9L115.4 505.1a8.74 8.74 0 0 0 0 13.8z"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-menu" viewBox="0 0 24 24">
+    <title>Menu</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-menu">
+      <line x1="3" y1="12" x2="21" y2="12"></line>
+      <line x1="3" y1="6" x2="21" y2="6"></line>
+      <line x1="3" y1="18" x2="21" y2="18"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-arrow-right" viewBox="0 0 24 24">
+    <title>Expand</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-chevron-right">
+      <polyline points="9 18 15 12 9 6"></polyline>
+    </svg>
+  </symbol>
+  <symbol id="svg-sun" viewBox="0 0 24 24">
+    <title>Light mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="feather-sun">
+      <circle cx="12" cy="12" r="5"></circle>
+      <line x1="12" y1="1" x2="12" y2="3"></line>
+      <line x1="12" y1="21" x2="12" y2="23"></line>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+      <line x1="1" y1="12" x2="3" y2="12"></line>
+      <line x1="21" y1="12" x2="23" y2="12"></line>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-moon" viewBox="0 0 24 24">
+    <title>Dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-moon">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z" />
+    </svg>
+  </symbol>
+  <symbol id="svg-sun-half" viewBox="0 0 24 24">
+    <title>Auto light/dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-shadow">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+      <circle cx="12" cy="12" r="9" />
+      <path d="M13 12h5" />
+      <path d="M13 15h4" />
+      <path d="M13 18h1" />
+      <path d="M13 9h4" />
+      <path d="M13 6h1" />
+    </svg>
+  </symbol>
+</svg>
+
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation">
+<input type="checkbox" class="sidebar-toggle" name="__toc" id="__toc">
+<label class="overlay sidebar-overlay" for="__navigation">
+  <div class="visually-hidden">Hide navigation sidebar</div>
+</label>
+<label class="overlay toc-overlay" for="__toc">
+  <div class="visually-hidden">Hide table of contents sidebar</div>
+</label>
+
+
+
+<div class="page">
+  <header class="mobile-header">
+    <div class="header-left">
+      <label class="nav-overlay-icon" for="__navigation">
+        <div class="visually-hidden">Toggle site navigation sidebar</div>
+        <i class="icon"><svg><use href="#svg-menu"></use></svg></i>
+      </label>
+    </div>
+    <div class="header-center">
+      <a href="../../index.html"><div class="brand">Maths Track</div></a>
+    </div>
+    <div class="header-right">
+      <div class="theme-toggle-container theme-toggle-header">
+        <button class="theme-toggle">
+          <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
+          <svg class="theme-icon-when-auto"><use href="#svg-sun-half"></use></svg>
+          <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+          <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+        </button>
+      </div>
+      <label class="toc-overlay-icon toc-header-icon" for="__toc">
+        <div class="visually-hidden">Toggle table of contents sidebar</div>
+        <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+      </label>
+    </div>
+  </header>
+  <aside class="sidebar-drawer">
+    <div class="sidebar-container">
+      
+      <div class="sidebar-sticky"><a class="sidebar-brand" href="../../index.html">
+  
+  
+  <span class="sidebar-brand-text">Maths Track</span>
+  
+</a><form class="sidebar-search-container" method="get" action="../../search.html" role="search">
+  <input class="sidebar-search" placeholder="Search" name="q" aria-label="Search">
+  <input type="hidden" name="check_keywords" value="yes">
+  <input type="hidden" name="area" value="default">
+</form>
+<div id="searchbox"></div><div class="sidebar-scroll"><div class="sidebar-tree">
+  <ul class="current">
+<li class="toctree-l1 current has-children"><a class="reference internal" href="../index.html">Proofwriting and Problem-Solving</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><div class="visually-hidden">Toggle navigation of Proofwriting and Problem-Solving</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
+<li class="toctree-l2"><a class="reference external" href="http://localhost:8000/_static/how-to-solve-it.pdf">How to Solve It, by George Polya</a></li>
+<li class="toctree-l2 current has-children"><a class="reference internal" href="index.html">How to Prove It, by Daniel J. Velleman</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><div class="visually-hidden">Toggle navigation of How to Prove It, by Daniel J. Velleman</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="introduction.html">Chapter 0 — Introduction</a></li>
+<li class="toctree-l3 current current-page"><a class="current reference internal" href="#">Chapter 1 — Sentential Logic</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ch2.html">Chapter 2 — Quantificational Logic</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ch3.html">Chapter 3 — Proofs</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../linear-algebra/index.html">Linear Algebra</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" role="switch" type="checkbox"/><label for="toctree-checkbox-3"><div class="visually-hidden">Toggle navigation of Linear Algebra</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference external" href="http://localhost:8000/_static/serge-lang.pdf">Linear Algebra, by Serge Lang</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference external" href="https://ghassbomb.github.io/">My Website</a></li>
+</ul>
+
+</div>
+</div>
+
+      </div>
+      
+    </div>
+  </aside>
+  <div class="main">
+    <div class="content">
+      <div class="article-container">
+        <a href="#" class="back-to-top muted-link">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12z"></path>
+          </svg>
+          <span>Back to top</span>
+        </a>
+        <div class="content-icon-container">
+          <div class="edit-this-page">
+  <a class="muted-link" href="https://github.com/ghassbomb/maths-track/edit/main/proofs/how-to-prove-it/ch1.md" title="Edit this page">
+    <svg aria-hidden="true" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+      <path d="M4 20h4l10.5 -10.5a1.5 1.5 0 0 0 -4 -4l-10.5 10.5v4" />
+      <line x1="13.5" y1="6.5" x2="17.5" y2="10.5" />
+    </svg>
+    <span class="visually-hidden">Edit this page</span>
+  </a>
+</div><div class="theme-toggle-container theme-toggle-content">
+            <button class="theme-toggle">
+              <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
+              <svg class="theme-icon-when-auto"><use href="#svg-sun-half"></use></svg>
+              <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+              <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+            </button>
+          </div>
+          <label class="toc-overlay-icon toc-content-icon" for="__toc">
+            <div class="visually-hidden">Toggle table of contents sidebar</div>
+            <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+          </label>
+        </div>
+        <article role="main">
+          <section class="tex2jax_ignore mathjax_ignore" id="chapter-1-sentential-logic">
+<h1>Chapter 1 — Sentential Logic<a class="headerlink" href="#chapter-1-sentential-logic" title="Link to this heading">#</a></h1>
+<section id="chapter-1-1-deductive-reasoning-and-logical-connectives">
+<h2>Chapter 1.1 — Deductive Reasoning and Logical Connectives<a class="headerlink" href="#chapter-1-1-deductive-reasoning-and-logical-connectives" title="Link to this heading">#</a></h2>
+<section id="notes">
+<h3>Notes<a class="headerlink" href="#notes" title="Link to this heading">#</a></h3>
+<p>Proofs are based on deductive reasoning. Deductive reasoning involves
+arriving at a <em>conclusion</em> from one or more <em>premises</em>. The fruit of the
+whole process, including our premises and conclusion, is an argument.
+For instance, we have the argument:</p>
+<ol class="arabic simple">
+<li><p>It will either rain or snow tomorrow</p></li>
+<li><p>It will not snow tomorrow</p></li>
+<li><p>Therefore, it will rain tommorrow</p></li>
+</ol>
+<p>Here, the first two statements are our premises, and the final is our
+conclusion deducted/derived from them. If our premises are true, and our conclusion is true, then the argument is said to be <em>valid</em>. Put another way, an argument is valid if it is impossible for the premises to be true, but the conclusion false. We could also say that, if the conclusion is false, then at least one of the premises must be false (for the argument to be valid).</p>
+<p>Note that it is possibly for the premises to be false and the conclusion true, and that this has no effect on our argument. Our argument is only concerned with the relationship between the selected premises and conclusion; if the conclusion is true for some other reason, it has no bearing on the validity of our argument.</p>
+<p>Propositions make up a statement (which make up arguments). Here, the
+two main propositions are ‘It will rain tomorrow’ and ‘It will snow
+tomorrow’. We can restate propositions as letters instead of grammar;
+this is a convenient way of removing the ‘fluff’ and not getting
+confused by the irrelevant details, as we often do. Thus, we can restate
+our last argument as:</p>
+<ol class="arabic simple">
+<li><p>P or Q</p></li>
+<li><p>not P</p></li>
+<li><p>Therefore, Q</p></li>
+</ol>
+<p>Where P is the propsosition ‘it will rain tomorrow’, and Q means ‘it
+will snow tomorrow’. You can substitute the propositions back into the
+lean logical statement and it will be perfectly viable grammatically.</p>
+<p>But we haven’t removed all words: ‘or’, ‘not’, and ‘therefore’ remain.
+We have logical operators, sometimes called logical <em>connectives</em>, to
+replace them: <span class="math notranslate nohighlight">\(\vee, \wedge, \neg\)</span> correspond to ‘or’, ‘and’, ‘not’; we
+use the verbs ‘disjunction’, ‘adjunction’, and ‘negation’ to describe
+their effects on statements (e.g. <span class="math notranslate nohighlight">\(P \vee Q\)</span> is the disjunction of P and
+Q). There is also a ‘therefore’ connective: <span class="math notranslate nohighlight">\(\therefore\)</span>.</p>
+<p>With this, we have a logic language of sorts. We can again rewrite the
+argument using this language:</p>
+<ol class="arabic simple">
+<li><p><span class="math notranslate nohighlight">\(P \vee Q\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(\neg P\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(\therefore Q\)</span></p></li>
+</ol>
+<p>For longer operations, we can use parentheses to indicate order of
+operations as in arithmetic. For instance:
+<span class="math notranslate nohighlight">\((P \wedge Q) \vee (P \wedge R)\)</span>.</p>
+</section>
+<section id="exercises">
+<h3>Exercises<a class="headerlink" href="#exercises" title="Link to this heading">#</a></h3>
+<ol class="arabic">
+<li><ol class="arabic simple">
+<li><p><span class="math notranslate nohighlight">\((R \vee H) \wedge \neg(H \wedge T)\)</span> where <span class="math notranslate nohighlight">\(R\)</span> means ‘we will
+have a reading assignment tomorrow’, <span class="math notranslate nohighlight">\(H\)</span> means ‘we will have
+homework tomorrow’, and <span class="math notranslate nohighlight">\(T\)</span> means ‘we will have a test
+tomorrow’.</p></li>
+<li><p><span class="math notranslate nohighlight">\((S \wedge \neg N) \vee \neg S\)</span> where <span class="math notranslate nohighlight">\(S\)</span> means ‘you will go
+skiing’ and <span class="math notranslate nohighlight">\(N\)</span> means ‘there won’t be snow’.</p></li>
+</ol>
+</li>
+<li><ol class="arabic simple">
+<li><p><span class="math notranslate nohighlight">\((J \wedge B) \vee \neg(J \vee B)\)</span> where <span class="math notranslate nohighlight">\(J\)</span> means ‘John is
+telling the truth’ and <span class="math notranslate nohighlight">\(B\)</span> means ‘Bill is telling the truth’.</p></li>
+<li><p><span class="math notranslate nohighlight">\((F \vee C) \wedge \neg(F \wedge M)\)</span> where <span class="math notranslate nohighlight">\(F\)</span> means ‘I will
+have fish’, <span class="math notranslate nohighlight">\(C\)</span> means ‘I will have chips’, and <span class="math notranslate nohighlight">\(M\)</span> means ‘I will
+have mashed potatoes’.</p></li>
+<li><p><span class="math notranslate nohighlight">\(P \wedge Q \wedge R\)</span> where <span class="math notranslate nohighlight">\(P\)</span>, <span class="math notranslate nohighlight">\(Q\)</span>, and <span class="math notranslate nohighlight">\(R\)</span> mean ‘3 is a
+factor of’ 6, 9, and 15 respectively.</p></li>
+</ol>
+</li>
+<li><p>Where <span class="math notranslate nohighlight">\(A\)</span> means ‘Alice is in the room’ and <span class="math notranslate nohighlight">\(B\)</span> means ‘Bob is in the
+room’.</p>
+<ol class="arabic simple">
+<li><p><span class="math notranslate nohighlight">\(\neg (A \wedge B)\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(\neg A \wedge \neg B\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(\neg A \vee \neg B\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(\neg (A \vee B)\)</span></p></li>
+</ol>
+</li>
+<li><p>Where <span class="math notranslate nohighlight">\(A\)</span> and <span class="math notranslate nohighlight">\(B\)</span> mean Ralph and Ed are handsome, respectively, and
+<span class="math notranslate nohighlight">\(P\)</span> and <span class="math notranslate nohighlight">\(Q\)</span> mean Ralph and Ed are tall, respectively.</p>
+<ol class="arabic simple">
+<li><p><span class="math notranslate nohighlight">\((A \wedge B) \vee (P \wedge Q)\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\((A \vee P) \wedge (B \vee Q)\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(\neg (A \vee B \vee P \vee Q)\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(\neg(A \wedge P) \wedge \neg(B \wedge Q)\)</span></p></li>
+</ol>
+</li>
+<li><p>(a) and (c</p></li>
+<li><ol class="arabic simple">
+<li><p>I will not buy the pants without buying the shirt.</p></li>
+<li><p>I will buy neither the pants nor the shirt.</p></li>
+<li><p>I will either not buy the pants or the shirt.</p></li>
+</ol>
+</li>
+<li><ol class="arabic simple">
+<li><p>Either Steve is happy or George is happy.</p></li>
+<li><p>Either Steve is happy or George is happy and Steve is not happy
+or George is not happy.</p></li>
+<li><p>Either Steve is happy or George is happy.</p></li>
+</ol>
+</li>
+<li><ol class="arabic simple">
+<li><p>Either taxes will go up or the deficit will go up.</p></li>
+<li><p>Both taxes and the deficit will not go up simultaneously, but
+either taxes or the deficit will go up.</p></li>
+<li><p>Either taxes will go up and the deficit will not go up, or the
+deficit will go up and taxes will not go up.</p></li>
+</ol>
+</li>
+<li><ol class="arabic">
+<li><p>Where <span class="math notranslate nohighlight">\(J\)</span> is ‘Jane will win the math prize’, <span class="math notranslate nohighlight">\(P\)</span> is ‘Pete will
+win the math prize’, and <span class="math notranslate nohighlight">\(C\)</span> is ‘Pete will win the chemistry
+prize’. <strong>Valid.</strong></p>
+<div class="math-wrapper docutils container">
+<div class="math notranslate nohighlight">
+\[\begin{split}
+        \begin{align*}
+        (J \vee P) \wedge (P \vee C) \\\\ J \\\\ \therefore C
+        \end{align*}
+        \end{split}\]</div>
+</div>
+</li>
+<li><p>Where <span class="math notranslate nohighlight">\(B\)</span> means ‘the main course will be beef’, <span class="math notranslate nohighlight">\(F\)</span> means ‘the
+main course will be fish’, <span class="math notranslate nohighlight">\(P\)</span> means ‘the vegetable will be
+peas’, and <span class="math notranslate nohighlight">\(C\)</span> means ‘the vegetable will be corn’. <strong>Invalid.</strong></p>
+<div class="math-wrapper docutils container">
+<div class="math notranslate nohighlight">
+\[\begin{split}
+        \begin{align*}
+        (B \vee F) \wedge (P \vee C) \\\\ \neg(F \wedge C) \\\\ \therefore \neg (B \wedge P)
+        \end{align*}
+        \end{split}\]</div>
+</div>
+</li>
+<li><p>Where <span class="math notranslate nohighlight">\(J\)</span>, <span class="math notranslate nohighlight">\(B\)</span>, and <span class="math notranslate nohighlight">\(S\)</span> mean John, Bill, and Sam are telling the
+truth, respectively. <strong>Valid.</strong>
+$$</p>
+<div class="math-wrapper amsmath docutils container">
+<div class="amsmath math notranslate nohighlight">
+\[\begin{align*}
+        J \vee B \\\\ \neg S \vee \neg B \\\\ \therefore J \vee \neg S
+        \end{align*}\]</div>
+</div>
+<div class="math-wrapper docutils container">
+<div class="math notranslate nohighlight">
+\[ \begin{align}\begin{aligned}## Chapter 1.2 — Truth Tables\\### Notes\\We use _truth tables_ to evaluate the verity of a logical proposition,
+statement, or argument. A proposition or a statement is either _true_ or
+_false_; for instance, the statement 'it is currently winter' is either
+true or false, no two ways about it. Also remember that, in order for an
+argument to be valid, it must satisfy the following condition: if all
+the premises are true then it _must_ also be true. We will see how to
+interpret this with respect to a truth table.\\To go back to our last example, the proposition 'P' can only be true or
+false; in the former case, that means 'it will rain tomorrow' and in the
+latter that means 'it will not rain tomorrow'. The same goes for
+$P \vee Q$, a statement; in this case, if either $P$ or $Q$ is true,
+then the whole statement will be true as well. In truth table form, it
+is written as such:\\| P   | Q   | $P \vee Q$ | $\neg Q$ | $\therefore P$ |
+| --- | --- | ---------- | -------- | -------------- |
+| T   | T   | F          | F        | F              |
+| T   | F   | T          | T        | T              |
+| F   | T   | T          | F        | F              |
+| F   | F   | F          | T        | F              |\\**Note**: There are two types of 'or' statements: inclusive, and
+exclusive or. With inclusive or, if both P and Q are true, then the
+whole statement can also be true. The opposite is true of exclusive or,
+which applies a stricter interpretation of 'or'; if both propositions
+are true, the statement is false. You should assume that a statement is
+inclusive, unless specified otherwise.\\Here, we assume that it is not possible for it to _both_ rain and snow
+tomorrow, and thus we are to assume an exclusive or. There is only one
+possibility where it rains tomorrow: when it will not snow tomorrow, and
+thus $\neg Q$ returns T, but it will rain tomorrow, and thus P and
+$P \vee Q$ return T.\\Onto the real question: is this argument valid? We have two premises
+(3rd and 4th column), and a conclusion (5th column). There is only one
+case where both premises are true (2nd row), and in that case the
+conclusion is also true. Therefore, the argument is said to be valid. If
+there were even a single line where all the premises were true and the
+conclusion was false, the argument would be considered invalid. (Refer
+back to §2.1.1 if you suffer any confusion)\\A _tautology_ is a statement that is always true, whereas a
+_contradiction_ is one that is never true. A tautology (grammatically)
+could be something like 'a friend is a friend', whereas a contradiction
+(grammatically) would be 'an enemy is a friend'. The conjunction of P
+and a tautology is always P, the adjunction of P and a tautology is
+itself a tautology, and the negation of a tautology is always a
+contradiction. This can be seen below: $P \vee Q$ is always true (a
+tautology) because Q is always true; $P \wedge Q$ is dependent on the
+value of P, and thus is P; $\neg Q$ is always false (a contradiction),
+because Q is always true.\\| P   | Q   | $P \vee Q$ | $P \wedge Q$ | $\neg Q$ |
+| --- | --- | ---------- | ------------ | -------- |
+| T   | T   | T          | T            | F        |
+| T   | T   | T          | T            | F        |
+| F   | T   | T          | F            | F        |
+| F   | T   | T          | F            | F        |\\### Exercises\\1.  Truth tables are too bothersome to replicate in LaTeX so this is the
+    only question I'm solving them in.\\    1.  | P   | Q   | $\neg P \vee Q$ |
+        | --- | --- | --------------- |
+        | T   | T   | T               |
+        | F   | T   | T               |
+        | T   | F   | F               |
+        | F   | F   | T               |
+    2.  | S   | G   | $S\vee G$ | $\neg S \vee \neg G$ | $(S\vee G) \wedge (\neg S \vee \neg G)$ |
+        | --- | --- | --------- | -------------------- | --------------------------------------- |
+        | T   | T   | T         | F                    | F                                       |
+        | F   | T   | T         | T                    | T                                       |
+        | T   | F   | T         | T                    | T                                       |
+        | F   | F   | F         | T                    | F                                       |\\_(skipped to exercise 11)_\\2.  1.  \end{aligned}\end{align} \]</div>
+</div>
+<div class="math-wrapper amsmath docutils container">
+<div class="amsmath math notranslate nohighlight">
+\[\begin{align*}
+          \neg (\neg P \wedge \neg Q)
+          \\\\ \neg \neg P \vee \neg \neg Q &amp;&amp; \text{(DeMorgan's laws)}
+          \\\\ P \vee Q  &amp;&amp; \text{(Double negation law)}
+        \end{align*}\]</div>
+</div>
+<div class="math-wrapper docutils container">
+<div class="math notranslate nohighlight">
+\[
+    2.  \]</div>
+</div>
+<div class="math-wrapper amsmath docutils container">
+<div class="amsmath math notranslate nohighlight">
+\[\begin{align*}
+          (P \wedge Q) \vee (P \wedge \neg Q)
+          \\\\ P \wedge (Q \vee \neg Q) &amp;&amp; \text{(Distributive laws)}
+          \\\\ P &amp;&amp;\text{(Tautology: $Q \vee \neg Q$)}
+        \end{align*}\]</div>
+</div>
+<div class="math-wrapper docutils container">
+<div class="math notranslate nohighlight">
+\[
+    3.  \]</div>
+</div>
+<div class="math-wrapper amsmath docutils container">
+<div class="amsmath math notranslate nohighlight">
+\[\begin{align*}
+          \neg (P \wedge \neg Q) \vee (\neg P \wedge Q) \\\\
+          (\neg P \vee Q) \vee (\neg P \wedge Q) &amp;&amp; \text{(DeMorgan \&amp; double neg laws)} \\\\
+          \neg P \vee Q &amp;&amp; \text{(Tautology)}
+        \end{align*}\]</div>
+</div>
+<div class="math-wrapper docutils container">
+<div class="math notranslate nohighlight">
+\[3.  ...
+    1.  \]</div>
+</div>
+<div class="math-wrapper amsmath docutils container">
+<div class="amsmath math notranslate nohighlight">
+\[\begin{align*}
+          \neg(\neg P \vee Q) \vee (P \wedge \neg R) \\\\
+          (P \wedge \neg Q) \vee (P \wedge \neg R)   &amp;&amp; \text{(DeMorgan \&amp; double neg laws)} \\\\
+          P \wedge (\neg Q \vee \neg R) &amp;&amp; \text{(Distributive laws)} \\\\
+          P \wedge \neg(Q \wedge R) &amp;&amp; \text{(DeMorgan's laws)}
+        \end{align*}\]</div>
+</div>
+<div class="math-wrapper docutils container">
+<div class="math notranslate nohighlight">
+\[
+    2.  \]</div>
+</div>
+<div class="math-wrapper amsmath docutils container">
+<div class="amsmath math notranslate nohighlight">
+\[\begin{align*}
+        \neg (\neg P \wedge Q) \vee (P \wedge \neg R)                                                  \\\\
+        P \vee \neg Q \vee (P \wedge \neg R)          &amp;  &amp; \text{(DeMorgan \&amp; double neg laws)} \\\\
+        \neg Q \vee (P \vee P) \wedge (P \vee \neg R) &amp;  &amp; \text{(Commutative \&amp; distributive laws)}  \\\\
+        \neg Q \vee (P \wedge (P \vee \neg R))        &amp;  &amp; \text{(Idempotent laws)}                    \\\\
+        \neg Q \vee P                                 &amp;  &amp; \text{(Absorption laws)}
+        \end{align*}\]</div>
+</div>
+<div class="math-wrapper docutils container">
+<div class="math notranslate nohighlight">
+\[
+    3.  \]</div>
+</div>
+<div class="math-wrapper amsmath docutils container">
+<div class="amsmath math notranslate nohighlight">
+\[\begin{align*}
+        (P \wedge R) \vee [\neg R \wedge (P \vee Q)]                                                          \\\\
+        (P \wedge R) \vee [(\neg R \wedge P) \vee (\neg R \wedge Q)] &amp;  &amp; \text{(Distributive laws)}          \\\\
+        (P \wedge R) \vee (P \wedge \neg R) \vee (\neg R \wedge Q)   &amp;  &amp; \text{(Commutative laws)}           \\\\
+        P \wedge (R \vee \neg R) \vee (\neg R \wedge Q)              &amp;  &amp; \text{(Distributive laws)}          \\\\
+        P \vee (\neg R \wedge Q)                                     &amp;  &amp; \text{(Tautology: $R \vee \neg R$)}
+        \end{align*}\]</div>
+</div>
+<div class="math-wrapper docutils container">
+<div class="math notranslate nohighlight">
+\[ \begin{align}\begin{aligned}## Chapter 1.3 — Variables and Sets\\### Notes\\We previously dealt with representing propositions with 'P' or 'Q';
+these are not _variables_ per-se. Variables in logic have _free_ or
+_bound_ values. For instance, in the function $f(x)=x+1$, $x$ can be any
+real number and is thus free. We can integrate these into logic as well.
+For the proposition '$x$ is a prime number', we can use $f(x)$ (as
+opposed to 'P'); if $x$ is in fact prime, this will be true.\\These propositions don't have to be strictly mathematical, and can be
+multivariate. $f(x, y)$ could mean '$x$, $y$ are men'. We can also use
+connectives with these statements: $f(x,y) \wedge g(z)$, where $f(x,y)$
+means the same thing as above, and $g(z)$ means '$z$ is a woman'.\\These propositions cannot simply be true or false, since they depend on
+variables. We can define _truth sets_ for them where, if the variable is
+contained in the _set_, the proposition will be true. A set is a
+collection of _elements_ and we can use the connective $\in$ to say
+something is 'an element of' a set. To define a set, we use the
+following language: $A = \{x \mid x \text{ is a prime}\}$, which means
+something like 'A is equal to the set of all x such that ($\mid$) $x$ is
+a prime number'. This is known as _set builder notation_. The part after
+the $\mid$ is an _elementhood test_, which basically determines if an
+item is fit to be an element in the set. If we were to ask, 'is
+$5 \in A$?', we would check if 5 is a prime and if it were true (it is),
+then 5 is in fact an element of A.\\Going back to free and bound variables, our statement that $5 \in A$ can
+be rephrased as $y \in \{x \mid x \text{ is a prime} \}$. Here, we can
+substitute $y = 5$, or $y = 3$, or any number that is prime. But we
+cannot substitute anything into $x$; $x$ is a dummy variable, it is
+bound. It does not function like an actual variable, but is merely used
+to replace the function of a number. $y$, on the other hand and as we
+demonstrated, can be replaced with any number and is thus free.\\The _universe of discourse_ of a statement or argument is essentially
+the set of all objects that this statement concerns itself with. For
+instance, for the set A, its universe of discourse would be every real
+number (because only real numbers can be prime). We can represent this
+thus: $A = \{x \in \mathbb{R} \mid x \text{ is a prime}\}$.\\The truth set of a tautology would be the universe of discourse itself;
+for instance, if there is a proposition
+$\{x \in \mathbb{R} \mid x^2 &gt; 0\}$; since $x^2 &gt; 0$ is a tautology,
+then every element of the universe of discourse $\mathbb{R}$ is an
+element of this set (since all the elements of the universe pass the
+test). The opposite, if the proposition is a contradiction, would be an
+empty set. We can denote an empty set with the symbol $\emptyset$. Similar to an empty set is the idea of two _disjoint_ sets — two sets which have no common elements.\\### Exercises\\1.  1.  $f(6) \wedge f(9) \wedge f(15)$ where $f(x)$ means '$x$ is a
+        multiple of 3'.
+    2.  $f(x, 2) \wedge f(x, 3) \wedge \neg f(x, 4)$ where $f(x, y)$
+        means '$x$ is a multiple of $y$'.
+    3.  $n(x) \wedge n(y) \wedge (f(x) \oplus f(y))$ where $f(x)$ means
+        '$x$ is a prime number' and $n(x)$ means '$x$ is a natural
+        number'.
+2.  1.  $m(x) \wedge m(y) \wedge (t(x,y) \vee t(y, x))$ where $m(x)$
+        means '$x$ is a male', and $t(x,y)$ means '$x$ is taller than
+        $y$'.
+    2.  $(b(x) \vee b(y)) \wedge (r(x) \vee r(y))$ where $b(x)$ means
+        '$x$ has brown eyes' and $r(x)$ means '$x$ has red hair'.
+    3.  $(b(x) \wedge r(x)) \vee (b(y) \wedge r(y))$ where the functions
+        mean the same thing as in (b).
+3.  1.  $\{x \mid x~ \text{is a planet in our solar system}\}$
+    2.  $\{x \mid x~ \text{is an ivy league university in the US}\}$
+    3.  $\{x \mid x~ \text{is a state in the USA}\}$
+    4.  $\{x \mid x~ \text{is a province of Canada}\}$
+4.  1.  $\{x \mid x~ \text{is a perfect square}\}$
+    2.  $\{x \mid x~ \text{is a power of} ~2\}$
+    3.  $\{x \mid x ~\text{is an integer that is} ~10 \leq x \leq 19 \}$
+5.  1.  $(-3 \in \mathbb{R}) \wedge (-3 &lt; 6)$ $x$ is a bound variable
+        and there are no free variables. Statement is true. ($13-2x&gt;1$
+        can be written as $x&lt;6$)
+    2.  $(4 \in \mathbb{R}) \wedge (4 &lt; 0) \wedge (4 &lt; 6)$ $x$ is a
+        bound variable and there are no free variables. Statement is
+        false.
+    3.  $(5 \notin \mathbb{R}) \vee (5 &lt; \frac{c-13}{-2})$. $x$ is a
+        bound variable, $c$ is a free variable.
+6.  1.  $\{x \mid x~ \text{was once married to Elizabeth Taylor}\} =$
+        {Conrad Hilton Jr., Michael Wilding, Mike Todd, \...}
+    2.  $\{x \mid x~ \text{is a logical connective discussed in Section 1.1}\} =$
+        $\{\vee, \wedge, \neg\}$
+    3.  $\{x \mid x~ \text{is the author of this book}\} =$ {Daniel J.
+        Velleman}\\## Chapter 1.4 — Operations on Sets\\### Notes\\The question now becomes, how do we deal with statements made up of
+function propositions? For instance, what would the truth set of a
+function proposition like $P(x) \wedge G(x)$ be?\\We would need to operate on the truth sets of both functions (A and B)
+in order to determine this. Furthermore, we can use a special
+set-language for these types of operations, to make solving these
+problems easier. It consists of: $\cap, \cup, \setminus$; intersection,
+union, and difference respectively. The intersection of two sets would
+be the elements that are common to both of them, while the union of two
+sets would be all of the elements of both, combined. The difference of
+two sets would be the elements in one set but not in the other, or we
+can also consider it the removal of elements in a set from another; like
+subtraction, it is _not_ commutative. The results of these operations
+are themselves sets.\\\begin{split}For instance, operations on the aforementioned sets, A
+$= \\{1, 2, 3, 4, 5\\}$ and B $=\\{3, 4, 5, 6, 7\\}$, would be:\end{split}\end{aligned}\end{align} \]</div>
+</div>
+</li>
+</ol>
+</li>
+</ol>
+<p>\begin{aligned}
+A \cup B &amp; = \{1, 2, 3, 4, 5, 6, 7\}
+\ A \cap B &amp;= \{3, 4, 5\}
+\ A \setminus B &amp;= \{1, 2\}
+\ B \setminus A &amp;= \{6, 7\}
+\end{aligned}
+$$</p>
+<p>Since the results of these operations are themselves sets, reformulating
+them in set builder notation would show us the general method of an
+operation. They are thus:</p>
+<div class="math-wrapper docutils container">
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{aligned}
+  A \cup B      &amp; = \\{x \mid x \in A \text{ or } x \in B\\}      \\\\
+  A \cap B      &amp; = \\{x \mid x \in A \text{ and } x \in B\\}     \\\\
+  A \setminus B &amp; = \\{x \mid x \in A \text{ and } x \notin B \\}
+\end{aligned}
+\end{split}\]</div>
+</div>
+<p>Going back to our original question: what is the truth set of
+<span class="math notranslate nohighlight">\(P(x) \wedge G(x)\)</span>? Let us assume that set A is the truth set of <span class="math notranslate nohighlight">\(P(x)\)</span>
+and set B is the truth set of <span class="math notranslate nohighlight">\(G(x)\)</span>. We can see that the connective in
+the statement <span class="math notranslate nohighlight">\(P(x) \wedge G(x)\)</span> is an adjunction; we need to find its
+set equivalent to apply on the two truth sets A and B, and its answer
+will be the truth set of the <em>whole</em> statement. A cursory glance at the
+sets in set builder notation shows us that the answer is <span class="math notranslate nohighlight">\(A \cap B\)</span>; it
+utilises ‘and’ and does not contain the ‘not in’ (<span class="math notranslate nohighlight">\(\notin\)</span>) symbol.</p>
+<p>Therefore, in order to obtain the truth set of the statement
+<span class="math notranslate nohighlight">\(P(x) \wedge G(x)\)</span>, and assuming that the truth set of <span class="math notranslate nohighlight">\(P(x)\)</span> is A, and
+<span class="math notranslate nohighlight">\(G(x)\)</span> is B, we perform the operation <span class="math notranslate nohighlight">\(A \cap B\)</span> with a result of
+<span class="math notranslate nohighlight">\(\{3, 4, 5\}\)</span>. Since the result of this operation is a set, we can also
+use the following set notation: <span class="math notranslate nohighlight">\(x \in A \cap B\)</span> to refer to the
+elements of the set. Expanding that further, we get:</p>
+<div class="math-wrapper docutils container">
+<div class="math notranslate nohighlight">
+\[ \begin{align}\begin{aligned}\begin{split}
+\begin{aligned}
+  x &amp; \in A \cap B                          \\\\
+  x &amp; \in \{y \mid y \in A \wedge y \in B\} \\\\
+  x &amp; \in A \wedge x \in B
+\end{aligned}$$ and other logical forms depending on the set operation.
+This shows us more clearly the relationship between set operations and
+logical connectives.\end{split}\\Once we have converted set operations into logical connectives, we can
+apply equivalence rules on them as well. For instance:\end{aligned}\end{align} \]</div>
+</div>
+<p>\begin{aligned}
+x &amp; \in A \cap (B \cup C) \
+x &amp; \in A \cap (x \in B \vee x \in C) \text{ (definition of <span class="math notranslate nohighlight">\(\cup\)</span>)} \
+x &amp; \in A \wedge (x \in B \vee x \in C) \text{ (definition of <span class="math notranslate nohighlight">\(\cap\)</span>)} \
+(x &amp; \in A \wedge x \in B) \vee (x \in A \wedge x \in C) \text{ (distributive law)}
+\end{aligned}
+$$</p>
+<p>If you wish, you can also substitute the propositions in these
+statements (i.e. <span class="math notranslate nohighlight">\(x \in A\)</span>) with letters, to completely convert them
+into logical statements.</p>
+</section>
+<section id="id1">
+<h3>Exercises<a class="headerlink" href="#id1" title="Link to this heading">#</a></h3>
+<ol class="arabic">
+<li><ol class="arabic">
+<li><div class="math-wrapper docutils container">
+<div class="math notranslate nohighlight">
+\[\begin{split}
+        \begin{aligned}
+            A \cap B &amp; = \\{1, 3, 12, 35\\} \\cap \\{3, 7, 12, 20\\} \\\\
+            &amp; = \\{3, 12\\}
+        \end{aligned}
+        \end{split}\]</div>
+</div>
+</li>
+<li><div class="math-wrapper docutils container">
+<div class="math notranslate nohighlight">
+\[\begin{split}
+        \begin{aligned}
+          (A \cup B) \setminus C &amp; = (\\{1, 3, 12, 35\\} \cup \\{3, 7, 12, 20\\}) \setminus \\{x \mid x \text{ is a prime number} \\} \\\\ &amp; = \\{1, 3, 7, 12, 20, 35\\} \setminus \\{x \mid x \text{ is a prime number} \\} \\\\ &amp; = \\{1, 12, 20, 35\\}
+        \end{aligned}
+        \end{split}\]</div>
+</div>
+</li>
+<li><div class="math-wrapper docutils container">
+<div class="math notranslate nohighlight">
+\[\begin{split}
+        \begin{aligned}
+            A \cup (B \setminus C) &amp;= \\{1, 3, 12, 35\\} \cup (\\{3, 7, 12, 20\\} \setminus \\{x \mid x \text{ is a prime number}\\}) \\\\&amp;= \\{1, 3, 12, 35\\} \cup \\{12, 20\\} \\\\&amp;= \\{1, 3, 12, 20, 35\\}
+        \end{aligned}
+        \end{split}\]</div>
+</div>
+</li>
+</ol>
+</li>
+<li><ol class="arabic simple">
+<li><p><span class="math notranslate nohighlight">\(x \in (A \setminus B) \setminus C \\\\
+                  = (x \in A \wedge x \notin B) \wedge x \notin C\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(x \in A \setminus (B \setminus C) \\\\
+                  = x \in A \wedge \neg (x \in B \wedge x \notin C) \\\\
+                  = x \in A \wedge x \notin B \vee x \in C\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(x \in (A \setminus B) \cup (A \cap C) \\\\
+                  = (x \in A \wedge x \notin B) \vee (x \in A \wedge x \in C)\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(x \in (A \setminus B) \cap (A \setminus C) \\\\
+                  = (x \in A \wedge x \notin B) \wedge (x \in A \wedge x \notin C)\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(x \in A \setminus (B \cup C) \\\\
+                  = x \in A \wedge \neg(x \in B \vee x \in C) \\\\
+                  = x \in A \wedge (x \notin B \wedge x \notin C)\)</span></p></li>
+</ol>
+</li>
+</ol>
+</section>
+</section>
+<section id="chapter-1-5-the-conditional-and-biconditional-connectives">
+<h2>Chapter 1.5 — The Conditional and Biconditional Connectives<a class="headerlink" href="#chapter-1-5-the-conditional-and-biconditional-connectives" title="Link to this heading">#</a></h2>
+<section id="id2">
+<h3>Notes<a class="headerlink" href="#id2" title="Link to this heading">#</a></h3>
+<p>There is a sort of argument form that we have left untouched until now:</p>
+<ol class="arabic simple">
+<li><p>If I am hungry, then I must eat</p></li>
+<li><p>I am hungry</p></li>
+<li><p>Therefore, I must eat</p></li>
+</ol>
+<p>You might have some trouble writing the first line as a logical
+statement. In proper terms, it is written as: <span class="math notranslate nohighlight">\(P \rightarrow Q\)</span>. This is
+a conditional statement, and the topic of this part. Conditional
+statements are simple to understand: <em>if</em> one statement is true, <em>then</em>
+another statement is also true. If P is true, then Q is true. Here, P is
+the <em>antecedent</em> and Q is the <em>consequent</em>. Everything before the
+conditional connective ‘<span class="math notranslate nohighlight">\(\rightarrow\)</span>’ is the antecedent, and after it comes
+the consequent.</p>
+<p>The truth table for a conditional statement is as follows:</p>
+<div class="table-wrapper colwidths-auto docutils container">
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>P</p></th>
+<th class="head"><p>Q</p></th>
+<th class="head"><p><span class="math notranslate nohighlight">\(P \rightarrow Q\)</span></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>T</p></td>
+<td><p>T</p></td>
+<td><p>T</p></td>
+</tr>
+<tr class="row-odd"><td><p>T</p></td>
+<td><p>F</p></td>
+<td><p>F</p></td>
+</tr>
+<tr class="row-even"><td><p>F</p></td>
+<td><p>T</p></td>
+<td><p>T</p></td>
+</tr>
+<tr class="row-odd"><td><p>F</p></td>
+<td><p>F</p></td>
+<td><p>T</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>The first possibility is simple enough: if the antecedent is true, and
+the consequent is true, then the statement is true. The second one is
+also simple: the antecedent is true but the consequent is false, and
+thus the statement is false.</p>
+<p>The third one is a bit more confusing: if the antecedent is false, but
+the consequent is still true (likely by virtue of some other factor), is
+our statement true or false? For instance, if we say that ‘If I am
+hungry, then I must eat’, but at one point I eat even when I am not
+hungry, maybe to taste test. Q is true, but P is false. Does this render
+our entire statement untenable, or is it simply an exception?</p>
+<p>And the final one is tough as well: if our antecedent is false and our
+consequent is false, is this because our statement is true, or is it
+because there is no link between the two statements and both are merely
+false by coincidence?</p>
+<p>In these last two cases, the statement is a <em>vacuous truth</em>, because the
+antecedent is false. It is by default true, simply because the statement
+is meaningless and its verity is thus irrelevant. For instance, suppose
+I promise to a friend: ‘if Pakistan win the next ODI World Cup, I’ll buy
+you a dinner at Cosa Nostra’. If Pakistan win and I buy him a dinner, I
+didn’t lie. My statement is true. If Pakistan win and I don’t buy him a
+dinner, I lied, so my statement is false. These are the first two lines.</p>
+<p>Let us suppose that Pakistan lose and I don’t buy him a dinner; I
+<em>could</em> have been lying, but since Pakistan lost it doesn’t matter. I
+told the truth, by an objective standard, and my statement is thus true,
+though a vacuous truth. It corresponds to line 4. Line 3 would be the
+case where Pakistan lose and I buy him a dinner anyways. Again, it
+doesn’t affect my statement at all; you can’t say I lied, after all I
+made no provision for a case like this in my statement. Thus, my
+statement is a vacuous truth.</p>
+<p>Another way to write conditionals is in the form: <span class="math notranslate nohighlight">\(\neg P \vee Q\)</span>.
+Grammatically, we can write this as (with some liberties) : ‘I’m not
+hungry, or I’d be eating’. Its truth table is identical. Most
+importantly, we can use this to gleam some other truths about
+conditionals. For instance:</p>
+<div class="math-wrapper docutils container">
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{aligned}
+  \neg P \vee Q &amp; = \neg P \vee \neg \neg Q                      \\\\
+                &amp; = \neg (P \vee \neg Q) \text{ (De Morgan's law)}
+\end{aligned}
+\end{split}\]</div>
+</div>
+<p>This leads us into another explanation:</p>
+<ol class="arabic simple">
+<li><p>If I am hungry, then I must eat <span class="math notranslate nohighlight">\((P \rightarrow Q)\)</span></p></li>
+<li><p>I must eat <span class="math notranslate nohighlight">\((Q)\)</span></p></li>
+<li><p>Therefore, I am hungry <span class="math notranslate nohighlight">\((\therefore P)\)</span></p></li>
+</ol>
+<p>is obviously invalid logic. Specifically, it would only
+be true if the first statement was instead its <em>converse</em>; if
+<span class="math notranslate nohighlight">\(P \rightarrow Q\)</span> was <span class="math notranslate nohighlight">\(Q \rightarrow P\)</span>. But is there a way to put Q on
+the other side of the right arrow? Yes, and it is a very important
+method of proof: <em>contraposition</em>.</p>
+<p>Essentially, we flip the entire statement
+<span class="math notranslate nohighlight">\(P \rightarrow Q = Q \rightarrow P\)</span> and then negate that. It then turns
+into <span class="math notranslate nohighlight">\(\neg Q \rightarrow \neg P\)</span>. If the original statement is true,
+then this contraposition must be true, and vice versa. Grammatically, it
+can be expressed as ‘If I am not eating, then I am not hungry’.</p>
+<p>Part of the problem with everyday intuitionistic logic and the more
+formal logic we study is that of implied meaning. When I say that ‘if
+you don’t get full marks, you’re grounded.’ the other person likely
+thinks (correctly) that if he <em>does</em> get full marks he won’t be
+grounded, even though that is not actually specified; it is implied.
+This sort of blurry meaning is incompatible with maths. Therefore, for
+such statements, we use the following language ‘<em>iff</em> you don’t get full
+marks, you’re grounded’. This can be expressed as: <span class="math notranslate nohighlight">\(P \iff Q\)</span>.</p>
+</section>
+<section id="id3">
+<h3>Exercises<a class="headerlink" href="#id3" title="Link to this heading">#</a></h3>
+<ol class="arabic simple">
+<li><ol class="arabic simple">
+<li><p><span class="math notranslate nohighlight">\((P \vee \neg Q) \rightarrow \neg R\)</span> where <span class="math notranslate nohighlight">\(P\)</span> means ‘the gas
+has an unpleasant smell’, <span class="math notranslate nohighlight">\(Q\)</span> means ‘this gas is explosive’, and
+<span class="math notranslate nohighlight">\(R\)</span> means ‘this gas is hydrogen’.</p></li>
+<li><p><span class="math notranslate nohighlight">\((P \wedge Q) \rightarrow R\)</span> where <span class="math notranslate nohighlight">\(P\)</span> means ‘George has a
+fever’, <span class="math notranslate nohighlight">\(Q\)</span> means ‘George has a headache’, and <span class="math notranslate nohighlight">\(R\)</span> means ‘George
+is going to the doctor.</p></li>
+<li><p><span class="math notranslate nohighlight">\((P \vee Q) \rightarrow R\)</span> with the same meanings.</p></li>
+<li><p><span class="math notranslate nohighlight">\(\neg f(x) \wedge g(x) \rightarrow p(x)\)</span> where
+<span class="math notranslate nohighlight">\(f(x), g(x), p(x)\)</span> mean ‘<span class="math notranslate nohighlight">\(x\)</span> is equal to 2’, ‘<span class="math notranslate nohighlight">\(x\)</span> is odd’, and
+‘<span class="math notranslate nohighlight">\(x\)</span> is a prime’, respectively.</p></li>
+</ol>
+</li>
+<li><ol class="arabic simple">
+<li><p>Where <span class="math notranslate nohighlight">\(P\)</span> is ‘sales will go up’, <span class="math notranslate nohighlight">\(Q\)</span> is ‘expenses will go up’,
+and <span class="math notranslate nohighlight">\(R\)</span> is ‘the boss will be happy’. The argument is <strong>valid</strong>.
+$<span class="math notranslate nohighlight">\(
+\begin{aligned}
+  P \vee Q             \\\\
+  P \rightarrow R      \\\\
+  Q \rightarrow \neg R \\\\
+  \therefore \neg (P \wedge Q)
+\end{aligned}
+\)</span>$</p></li>
+<li><p>Where P means ‘the warning light will come on’, Q means ‘the
+pressure is too high’ and R means ‘the relief valve is clogged’.
+<strong>Invalid</strong>.
+$<span class="math notranslate nohighlight">\(
+\begin{aligned}
+(Q \wedge R) \rightarrow P \\\\ \neg R \\\\ \therefore Q \rightarrow P
+\end{aligned}
+\)</span>$</p></li>
+</ol>
+</li>
+</ol>
+</section>
+</section>
+</section>
+
+        </article>
+      </div>
+      <footer>
+        
+        <div class="related-pages">
+          <a class="next-page" href="ch2.html">
+              <div class="page-info">
+                <div class="context">
+                  <span>Next</span>
+                </div>
+                <div class="title">Chapter 2 — Quantificational Logic</div>
+              </div>
+              <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
+            </a>
+          <a class="prev-page" href="introduction.html">
+              <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
+              <div class="page-info">
+                <div class="context">
+                  <span>Previous</span>
+                </div>
+                
+                <div class="title">Chapter 0 — Introduction</div>
+                
+              </div>
+            </a>
+        </div>
+        <div class="bottom-of-page">
+          <div class="left-details">
+            <div class="copyright">
+                Copyright &#169; 2024, Ghassan Shahzad
+            </div>
+            Made with <a href="https://www.sphinx-doc.org/">Sphinx</a> and <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
+            
+            <a href="https://github.com/pradyunsg/furo">Furo</a>
+            
+          </div>
+          <div class="right-details">
+            <div class="icons">
+              <a class="muted-link " href="https://github.com/ghassbomb/maths-track" aria-label="GitHub">
+                <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z"></path>
+                </svg>
+            </a>
+              
+            </div>
+          </div>
+        </div>
+        
+      </footer>
+    </div>
+    <aside class="toc-drawer">
+      
+      
+      <div class="toc-sticky toc-scroll">
+        <div class="toc-title-container">
+          <span class="toc-title">
+            On this page
+          </span>
+        </div>
+        <div class="toc-tree-container">
+          <div class="toc-tree">
+            <ul>
+<li><a class="reference internal" href="#">Chapter 1 — Sentential Logic</a><ul>
+<li><a class="reference internal" href="#chapter-1-1-deductive-reasoning-and-logical-connectives">Chapter 1.1 — Deductive Reasoning and Logical Connectives</a><ul>
+<li><a class="reference internal" href="#notes">Notes</a></li>
+<li><a class="reference internal" href="#exercises">Exercises</a></li>
+<li><a class="reference internal" href="#id1">Exercises</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#chapter-1-5-the-conditional-and-biconditional-connectives">Chapter 1.5 — The Conditional and Biconditional Connectives</a><ul>
+<li><a class="reference internal" href="#id2">Notes</a></li>
+<li><a class="reference internal" href="#id3">Exercises</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+          </div>
+        </div>
+      </div>
+      
+      
+    </aside>
+  </div>
+</div><script src="../../_static/documentation_options.js?v=2709fde1"></script>
+    <script src="../../_static/doctools.js?v=888ff710"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/scripts/furo.js?v=32e29ea5"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-mml-chtml.min.js"></script>
+    </body>
+</html>

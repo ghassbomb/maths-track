@@ -1,0 +1,8 @@
+# How to Prove It, by Daniel J. Velleman
+```{toctree}
+:maxdepth: 1
+introduction
+ch1
+ch2
+ch3
+```

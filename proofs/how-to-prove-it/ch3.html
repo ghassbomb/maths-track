@@ -1,0 +1,393 @@
+<!doctype html>
+<html class="no-js" lang="en" data-content_root="../../">
+  <head><meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1"/>
+    <meta name="color-scheme" content="light dark"><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+<link rel="index" title="Index" href="../../genindex.html" /><link rel="search" title="Search" href="../../search.html" /><link rel="next" title="Linear Algebra" href="../../linear-algebra/index.html" /><link rel="prev" title="Chapter 2 — Quantificational Logic" href="ch2.html" />
+
+    <!-- Generated with Sphinx 7.2.6 and Furo 2024.01.29 -->
+        <title>Chapter 3 — Proofs - Maths Track</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/furo.css?v=135e06be" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/furo-extensions.css?v=36a5483c" />
+    
+    
+
+
+<style>
+  body {
+    --color-code-background: #f8f8f8;
+  --color-code-foreground: black;
+  
+  }
+  @media not print {
+    body[data-theme="dark"] {
+      --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+    }
+    @media (prefers-color-scheme: dark) {
+      body:not([data-theme="light"]) {
+        --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+      }
+    }
+  }
+</style></head>
+  <body>
+    
+    <script>
+      document.body.dataset.theme = localStorage.getItem("theme") || "auto";
+    </script>
+    
+
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+  <symbol id="svg-toc" viewBox="0 0 24 24">
+    <title>Contents</title>
+    <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 1024 1024">
+      <path d="M408 442h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8zm-8 204c0 4.4 3.6 8 8 8h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56zm504-486H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zm0 632H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zM115.4 518.9L271.7 642c5.8 4.6 14.4.5 14.4-6.9V388.9c0-7.4-8.5-11.5-14.4-6.9L115.4 505.1a8.74 8.74 0 0 0 0 13.8z"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-menu" viewBox="0 0 24 24">
+    <title>Menu</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-menu">
+      <line x1="3" y1="12" x2="21" y2="12"></line>
+      <line x1="3" y1="6" x2="21" y2="6"></line>
+      <line x1="3" y1="18" x2="21" y2="18"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-arrow-right" viewBox="0 0 24 24">
+    <title>Expand</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-chevron-right">
+      <polyline points="9 18 15 12 9 6"></polyline>
+    </svg>
+  </symbol>
+  <symbol id="svg-sun" viewBox="0 0 24 24">
+    <title>Light mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="feather-sun">
+      <circle cx="12" cy="12" r="5"></circle>
+      <line x1="12" y1="1" x2="12" y2="3"></line>
+      <line x1="12" y1="21" x2="12" y2="23"></line>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+      <line x1="1" y1="12" x2="3" y2="12"></line>
+      <line x1="21" y1="12" x2="23" y2="12"></line>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-moon" viewBox="0 0 24 24">
+    <title>Dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-moon">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z" />
+    </svg>
+  </symbol>
+  <symbol id="svg-sun-half" viewBox="0 0 24 24">
+    <title>Auto light/dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-shadow">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+      <circle cx="12" cy="12" r="9" />
+      <path d="M13 12h5" />
+      <path d="M13 15h4" />
+      <path d="M13 18h1" />
+      <path d="M13 9h4" />
+      <path d="M13 6h1" />
+    </svg>
+  </symbol>
+</svg>
+
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation">
+<input type="checkbox" class="sidebar-toggle" name="__toc" id="__toc">
+<label class="overlay sidebar-overlay" for="__navigation">
+  <div class="visually-hidden">Hide navigation sidebar</div>
+</label>
+<label class="overlay toc-overlay" for="__toc">
+  <div class="visually-hidden">Hide table of contents sidebar</div>
+</label>
+
+
+
+<div class="page">
+  <header class="mobile-header">
+    <div class="header-left">
+      <label class="nav-overlay-icon" for="__navigation">
+        <div class="visually-hidden">Toggle site navigation sidebar</div>
+        <i class="icon"><svg><use href="#svg-menu"></use></svg></i>
+      </label>
+    </div>
+    <div class="header-center">
+      <a href="../../index.html"><div class="brand">Maths Track</div></a>
+    </div>
+    <div class="header-right">
+      <div class="theme-toggle-container theme-toggle-header">
+        <button class="theme-toggle">
+          <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
+          <svg class="theme-icon-when-auto"><use href="#svg-sun-half"></use></svg>
+          <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+          <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+        </button>
+      </div>
+      <label class="toc-overlay-icon toc-header-icon" for="__toc">
+        <div class="visually-hidden">Toggle table of contents sidebar</div>
+        <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+      </label>
+    </div>
+  </header>
+  <aside class="sidebar-drawer">
+    <div class="sidebar-container">
+      
+      <div class="sidebar-sticky"><a class="sidebar-brand" href="../../index.html">
+  
+  
+  <span class="sidebar-brand-text">Maths Track</span>
+  
+</a><form class="sidebar-search-container" method="get" action="../../search.html" role="search">
+  <input class="sidebar-search" placeholder="Search" name="q" aria-label="Search">
+  <input type="hidden" name="check_keywords" value="yes">
+  <input type="hidden" name="area" value="default">
+</form>
+<div id="searchbox"></div><div class="sidebar-scroll"><div class="sidebar-tree">
+  <ul class="current">
+<li class="toctree-l1 current has-children"><a class="reference internal" href="../index.html">Proofwriting and Problem-Solving</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><div class="visually-hidden">Toggle navigation of Proofwriting and Problem-Solving</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
+<li class="toctree-l2"><a class="reference external" href="http://localhost:8000/_static/how-to-solve-it.pdf">How to Solve It, by George Polya</a></li>
+<li class="toctree-l2 current has-children"><a class="reference internal" href="index.html">How to Prove It, by Daniel J. Velleman</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><div class="visually-hidden">Toggle navigation of How to Prove It, by Daniel J. Velleman</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="introduction.html">Chapter 0 — Introduction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ch1.html">Chapter 1 — Sentential Logic</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ch2.html">Chapter 2 — Quantificational Logic</a></li>
+<li class="toctree-l3 current current-page"><a class="current reference internal" href="#">Chapter 3 — Proofs</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../linear-algebra/index.html">Linear Algebra</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" role="switch" type="checkbox"/><label for="toctree-checkbox-3"><div class="visually-hidden">Toggle navigation of Linear Algebra</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference external" href="http://localhost:8000/_static/serge-lang.pdf">Linear Algebra, by Serge Lang</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference external" href="https://ghassbomb.github.io/">My Website</a></li>
+</ul>
+
+</div>
+</div>
+
+      </div>
+      
+    </div>
+  </aside>
+  <div class="main">
+    <div class="content">
+      <div class="article-container">
+        <a href="#" class="back-to-top muted-link">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12z"></path>
+          </svg>
+          <span>Back to top</span>
+        </a>
+        <div class="content-icon-container">
+          <div class="edit-this-page">
+  <a class="muted-link" href="https://github.com/ghassbomb/maths-track/edit/main/proofs/how-to-prove-it/ch3.md" title="Edit this page">
+    <svg aria-hidden="true" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+      <path d="M4 20h4l10.5 -10.5a1.5 1.5 0 0 0 -4 -4l-10.5 10.5v4" />
+      <line x1="13.5" y1="6.5" x2="17.5" y2="10.5" />
+    </svg>
+    <span class="visually-hidden">Edit this page</span>
+  </a>
+</div><div class="theme-toggle-container theme-toggle-content">
+            <button class="theme-toggle">
+              <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
+              <svg class="theme-icon-when-auto"><use href="#svg-sun-half"></use></svg>
+              <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+              <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+            </button>
+          </div>
+          <label class="toc-overlay-icon toc-content-icon" for="__toc">
+            <div class="visually-hidden">Toggle table of contents sidebar</div>
+            <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+          </label>
+        </div>
+        <article role="main">
+          <section class="tex2jax_ignore mathjax_ignore" id="chapter-3-proofs">
+<h1>Chapter 3 — Proofs<a class="headerlink" href="#chapter-3-proofs" title="Link to this heading">#</a></h1>
+<section id="chapter-3-1-proof-strategies">
+<h2>Chapter 3.1 — Proof Strategies<a class="headerlink" href="#chapter-3-1-proof-strategies" title="Link to this heading">#</a></h2>
+<section id="notes">
+<h3>Notes<a class="headerlink" href="#notes" title="Link to this heading">#</a></h3>
+<p>Proofs are like the logical arguments studied in <a class="reference internal" href="#../ch1"><span class="xref myst">§1</span></a>: they consist of a set of <em>hypotheses</em> leading to a <em>conclusion</em>. The goal of a proof is to prove the validity of a <em>theorem</em>, where the theorem is usually an answer to a mathematical question. Hypotheses and conclusions are usually general and non-specific, which is to say, they contain free variables. If we were to assign these variables values, in our attempt at proving a theorem for example, we would create an <em>instance</em> of that theorem.</p>
+<p>Like an argument, a theorem is considered correct or valid if, in <em>every possible</em> instance of the theorem where the hypotheses are true, the conclusion is also true. A way to disprove a theorem is thus obvious: we find a <em>counterexample</em> to this rule; an instance where the hypotheses are true, but the conclusion is false.</p>
+<p>There exists no exact method for writing a proof, given the vastness of maths. It is a sort of art. There are, however, strategies and techniques for more easily solving proofs. One example of a technique would be drawing <em>inferences</em> from the hypothesis; we <em>assume</em> that the hypotheses are true and link (infer) from that a statement, which we can also assume as true. For instance, in any theorem of the form <span class="math notranslate nohighlight">\(P \rightarrow Q\)</span>, we can take <span class="math notranslate nohighlight">\(P\)</span> as a hypothesis and assume its truth; from there, we attempt to show how <span class="math notranslate nohighlight">\(P\)</span> being true means <span class="math notranslate nohighlight">\(Q\)</span> must be true as well.</p>
+<p>Note that taking something as a hypothesis, assuming its truth, does not mean it <em>is</em> true (<em>asserting</em> its truth). Care must be taken in this regard. To help in this process, we can divide a theorem into two parts: <em>givens</em> and <em>goals</em>. The givens are statements and propositions assumed to be true, and the goal is the statement that we must prove in order to validate our theorem.</p>
+<p>For statements of the form <span class="math notranslate nohighlight">\(P \rightarrow Q\)</span>, you may remember the idea of a contrapositive: the statement can also be expressed as <span class="math notranslate nohighlight">\(\neg Q \rightarrow \neg P\)</span>. We can use this in our method as well; we assume that Q is false, and prove that P is false as well.</p>
+</section>
+<section id="exercises">
+<h3>Exercises<a class="headerlink" href="#exercises" title="Link to this heading">#</a></h3>
+<ol class="arabic simple">
+<li><p>…</p>
+<ol class="arabic simple">
+<li><p>Hypotheses: <span class="math notranslate nohighlight">\(n &gt; 1\)</span>, and <span class="math notranslate nohighlight">\(n\)</span> is composite. Conclusion: <span class="math notranslate nohighlight">\(2^n-1\)</span> is composite. When <span class="math notranslate nohighlight">\(n=6\)</span>, the hypotheses are both true, and thus we can conclude that <span class="math notranslate nohighlight">\(2^6 - 1\)</span> is composite, and so it is (<span class="math notranslate nohighlight">\(63\)</span>). However, this is just one instance of the theorem, and can not be taken as proof of anything.</p></li>
+<li><p>The hypotheses are both true, so we can conclude that <span class="math notranslate nohighlight">\(2^{15} - 1\)</span> is composite. Indeed, it is so.</p></li>
+<li><p>In this case, <span class="math notranslate nohighlight">\(n = 11\)</span>, the second hypothesis is not true, since <span class="math notranslate nohighlight">\(11\)</span> is prime. Therefore, the theorem is pointless and a vacuous truth, though the conclusion <em>is</em> true.</p></li>
+</ol>
+</li>
+<li><p>…</p>
+<ol class="arabic simple">
+<li><p>Hypotheses: <span class="math notranslate nohighlight">\(b^2 &gt; 4ac\)</span>. Conclusion: <span class="math notranslate nohighlight">\(ax^2 + bx + c = 0\)</span> has two solutions.</p></li>
+<li><p>Because we are solving <em>for</em> x in the quadratic equation, so giving it a value would go against the whole point.</p></li>
+<li><p>The hypothesis (<span class="math notranslate nohighlight">\(25 &gt; 24\)</span>) is true, so we can conclude that <span class="math notranslate nohighlight">\(2x^2 - 5x + 3 = 0\)</span> has two solutions. Indeed, the conclusion (<span class="math notranslate nohighlight">\(x = 3/2\)</span> and <span class="math notranslate nohighlight">\(x = 1\)</span>) is true.</p></li>
+<li><p>The hypothesis (<span class="math notranslate nohighlight">\(16 &gt; 24\)</span>) is false, so the instance is a vacuous truth and pointless.</p></li>
+</ol>
+</li>
+<li><p>…</p>
+<ol class="arabic simple">
+<li><p>Hypotheses: <span class="math notranslate nohighlight">\(n &gt; 2\)</span> and <span class="math notranslate nohighlight">\(n\)</span> is composite. Conclusion: <span class="math notranslate nohighlight">\(2n+13\)</span> is composite.</p></li>
+<li><p>When <span class="math notranslate nohighlight">\(n = 9\)</span>, both hypotheses are true, and we can conclude that <span class="math notranslate nohighlight">\(2n+13\)</span> is composite. However, <span class="math notranslate nohighlight">\(2(9)+13=31\)</span> and <span class="math notranslate nohighlight">\(31\)</span> is a prime number. Therefore, this theorem is incorrect.</p></li>
+</ol>
+</li>
+<li><p><strong>Theorem:</strong> if <span class="math notranslate nohighlight">\(0 &lt; a &lt; b\)</span>, then <span class="math notranslate nohighlight">\(b^2 &gt; a^2\)</span>.</p>
+<ol class="arabic simple">
+<li><p>Proof:</p>
+<ol class="arabic simple">
+<li><p>We know that <span class="math notranslate nohighlight">\(b &gt; a\)</span>.</p></li>
+<li><p>We can multiply positive number <span class="math notranslate nohighlight">\(a\)</span> with both sides to get the inequality: <span class="math notranslate nohighlight">\(ab &gt; a^2\)</span>.</p></li>
+<li><p>We can multiply positive number <span class="math notranslate nohighlight">\(b\)</span> with both sides to get the inequality: <span class="math notranslate nohighlight">\(b^2 &gt; ab\)</span>.</p></li>
+<li><p>If <span class="math notranslate nohighlight">\(ab &gt; a^2\)</span>, and <span class="math notranslate nohighlight">\(b^2 &gt; ab\)</span>, then <span class="math notranslate nohighlight">\(a^2 &lt; b^2\)</span>.</p></li>
+<li><p><strong>QED</strong></p></li>
+</ol>
+</li>
+</ol>
+</li>
+<li><p><strong>Theorem:</strong> if <span class="math notranslate nohighlight">\(a &lt; b &lt; 0\)</span>, then <span class="math notranslate nohighlight">\(a^2 &gt; b^2\)</span>.</p>
+<ol class="arabic simple">
+<li><p>Proof:</p>
+<ol class="arabic simple">
+<li><p>We know that <span class="math notranslate nohighlight">\(a &lt; b\)</span>.</p></li>
+<li><p>Multiplying both sides by negative number <span class="math notranslate nohighlight">\(a\)</span> gives us: <span class="math notranslate nohighlight">\(a^2 &gt; ab\)</span>.</p></li>
+<li><p>Multiplying both sides by negative number <span class="math notranslate nohighlight">\(b\)</span> gives us: <span class="math notranslate nohighlight">\(ab &gt; b^2\)</span>.</p></li>
+<li><p>If <span class="math notranslate nohighlight">\(ab &gt; b^2\)</span> and <span class="math notranslate nohighlight">\(a^2 &gt; ab\)</span>, then <span class="math notranslate nohighlight">\(a^2 &gt; b^2\)</span>.</p></li>
+<li><p><strong>QED</strong></p></li>
+</ol>
+</li>
+</ol>
+</li>
+<li><p><strong>Theorem:</strong> if <span class="math notranslate nohighlight">\(0 &lt; a &lt; b\)</span>, then <span class="math notranslate nohighlight">\(\frac{1}{b} &lt; \frac{1}{a}\)</span>.</p>
+<ol class="arabic simple">
+<li><p>Proof:</p>
+<ol class="arabic simple">
+<li><p>We know that <span class="math notranslate nohighlight">\(\frac{1}{b} &lt; \frac{1}{a}\)</span>.</p></li>
+<li><p>Multiplying both sides by <span class="math notranslate nohighlight">\(\frac{1}{ab}\)</span> gives us: <span class="math notranslate nohighlight">\(\frac{a}{ab} &lt; \frac{b}{ab}\)</span>.</p></li>
+<li><p>We can simplify these fractions to get: <span class="math notranslate nohighlight">\(\frac{1}{b} &lt; \frac{1}{a}\)</span>.</p></li>
+<li><p><strong>QED</strong></p></li>
+</ol>
+</li>
+</ol>
+</li>
+<li><p><strong>Theorem:</strong> if <span class="math notranslate nohighlight">\(a^3 &gt; a\)</span>, then <span class="math notranslate nohighlight">\(a^5 &gt; a\)</span>.</p>
+<ol class="arabic simple">
+<li><p>Proof:</p>
+<ol class="arabic simple">
+<li><p>We know that <span class="math notranslate nohighlight">\(a^3 &gt; a\)</span>.</p></li>
+<li><p>We can multiply both sides with positive number <span class="math notranslate nohighlight">\(a^2\)</span> to get: <span class="math notranslate nohighlight">\(a^5 &gt; a^3\)</span>.</p></li>
+<li><p>If <span class="math notranslate nohighlight">\(a^3 &gt; a\)</span> and <span class="math notranslate nohighlight">\(a^5 &gt; a^3\)</span>, then <span class="math notranslate nohighlight">\(a^5 &gt; a\)</span>.</p></li>
+<li><p><strong>QED</strong></p></li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+</section>
+</section>
+</section>
+
+        </article>
+      </div>
+      <footer>
+        
+        <div class="related-pages">
+          <a class="next-page" href="../../linear-algebra/index.html">
+              <div class="page-info">
+                <div class="context">
+                  <span>Next</span>
+                </div>
+                <div class="title">Linear Algebra</div>
+              </div>
+              <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
+            </a>
+          <a class="prev-page" href="ch2.html">
+              <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
+              <div class="page-info">
+                <div class="context">
+                  <span>Previous</span>
+                </div>
+                
+                <div class="title">Chapter 2 — Quantificational Logic</div>
+                
+              </div>
+            </a>
+        </div>
+        <div class="bottom-of-page">
+          <div class="left-details">
+            <div class="copyright">
+                Copyright &#169; 2024, Ghassan Shahzad
+            </div>
+            Made with <a href="https://www.sphinx-doc.org/">Sphinx</a> and <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
+            
+            <a href="https://github.com/pradyunsg/furo">Furo</a>
+            
+          </div>
+          <div class="right-details">
+            <div class="icons">
+              <a class="muted-link " href="https://github.com/ghassbomb/maths-track" aria-label="GitHub">
+                <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z"></path>
+                </svg>
+            </a>
+              
+            </div>
+          </div>
+        </div>
+        
+      </footer>
+    </div>
+    <aside class="toc-drawer">
+      
+      
+      <div class="toc-sticky toc-scroll">
+        <div class="toc-title-container">
+          <span class="toc-title">
+            On this page
+          </span>
+        </div>
+        <div class="toc-tree-container">
+          <div class="toc-tree">
+            <ul>
+<li><a class="reference internal" href="#">Chapter 3 — Proofs</a><ul>
+<li><a class="reference internal" href="#chapter-3-1-proof-strategies">Chapter 3.1 — Proof Strategies</a><ul>
+<li><a class="reference internal" href="#notes">Notes</a></li>
+<li><a class="reference internal" href="#exercises">Exercises</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+          </div>
+        </div>
+      </div>
+      
+      
+    </aside>
+  </div>
+</div><script src="../../_static/documentation_options.js?v=2709fde1"></script>
+    <script src="../../_static/doctools.js?v=888ff710"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/scripts/furo.js?v=32e29ea5"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-mml-chtml.min.js"></script>
+    </body>
+</html>
