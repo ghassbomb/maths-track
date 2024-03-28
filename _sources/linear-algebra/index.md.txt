@@ -1,5 +1,5 @@
 # Linear Algebra
 ```{toctree}
 :maxdepth: 1
-Linear Algebra, by Serge Lang <http://localhost:8000/_static/serge-lang.pdf>
+Linear Algebra, by Serge Lang <http://ghassbomb.github.io/maths-track/_static/serge-lang.pdf>
 ```
